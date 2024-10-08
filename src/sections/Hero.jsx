@@ -57,11 +57,10 @@ const Hero = () => {
 
     const sizes = calculateSizes(isSmall, isMobile, isTablet)
     return (
-        <section className="min-h-screen  w-full flex flex-col relative " id="home">
-            <div className="w-full mx-auto flex flex-col sm:mt-36 md:mt-20 c-space gap-3">
+        <section className="min-h-screen   w-full flex flex-col relative " id="home">
+            <div className="w-full mx-auto flex flex-col mt-20 md:mt-20 c-space gap-3">
                 <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">
                     Hi, I am Patrick <span className='waving-hand'>👋</span>
-
                 </p>
                 <p className="text-xl md:text-xl font-light text-white text-center font-generalsans">
                     A Full Stack Software Architect, Software Developer, Devops and Ethical Hacker
@@ -82,6 +81,7 @@ const Hero = () => {
                                 scale={sizes.deskScale}
                             />
                         </HeroCamera>
+
                         <group>
                             <Target position={sizes.targetPosition}/>
                             <ReactLogo position={sizes.reactLogoPosition}/>
