@@ -72,7 +72,7 @@ const Hero = () => {
       <div className="w-full h-full absolute inset-0">
         {/*<Leva/>*/}
         <Canvas className="w-full h-full">
-          <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
+          {/* <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} /> */}
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 0]} />
             <HeroCamera isMobile={isMobile}>
