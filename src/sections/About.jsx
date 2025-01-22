@@ -1,8 +1,23 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Globe from "react-globe.gl";
 import Button from "../components/Button.jsx";
+import { Canvas } from "@react-three/fiber";
+import CanvasLoader from "../components/CanvasLoader.jsx";
+import { Center, OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import HeroCamera from "../components/HeroCamera.jsx";
+import HackerRoom from "../components/HackerRoom.jsx";
+import { useMediaQuery } from "react-responsive";
+import { calculateSizes } from "../constants/index.js";
+import DemoComputer from "../components/DemoComputer.jsx";
+import ModernHome1 from "../components/ModernHome1.jsx";
+import ModernHome2 from "../components/ModernHome2.jsx";
 
 const About = () => {
+  const isSmall = useMediaQuery({ maxWidth: 440 });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isTablet = useMediaQuery({ maxWidth: 1024 });
+  const sizes = calculateSizes(isSmall, isMobile, isTablet);
+
   const [hasCopied, setHasCopied] = useState(false);
   const handleCopy = () => {
     navigator.clipboard.writeText("mohammedola1234@gmail.com");
@@ -39,7 +54,7 @@ const About = () => {
                 exceed client expectations, contributing to the development and
                 advancement of the industries we serve.
               </p>
-            </div>{" "}
+            </div>
             <div>
               <p className="grid-headtext">Our Vision</p>
               <p className="grid-subtext">
@@ -86,11 +101,25 @@ const About = () => {
         </div>
         <div className="cols-span-1 xl:row-span-3">
           <div className="grid-container">
-            <img
-              src="/assets/grid2.png"
-              alt="gris-2"
-              className="w-full sm:w-[276px] h-fit object-contain"
-            />
+            <div className="w-full h-[500px]">
+              <Canvas>
+                <ambientLight intensity={Math.PI} />
+                <directionalLight position={[0, 10, 5]} />
+                <Center>
+                  <Suspense fallback={<CanvasLoader />}>
+                    <group
+                      scale={isMobile ? 0.1 : 2}
+                      position={[0, -1, 0]}
+                      rotation={[0, -0.1, 0]}
+                    >
+                      <ModernHome2 />
+                      {/* <DemoComputer /> */}
+                    </group>
+                  </Suspense>
+                </Center>
+                <OrbitControls maxPolarAngle={Math.PI} enableZoom={true} />
+              </Canvas>
+            </div>
             <div>
               <p className="grid-headtext">Services</p>
 
@@ -248,10 +277,16 @@ const About = () => {
               className="h-full sm:h-[266px] h-fit object-contain"
             />
             <div>
-              <p className="grid-headtext">My passion for problem solving </p>
+              <p className="grid-headtext">
+                My passion for Cutting edge technology in Engineering{" "}
+              </p>
               <p className="grid-subtext">
-                I like to take on challenges and coding is not just my
-                profession - it is my passion
+                At PB Designs Limited, we are committed to delivering
+                innovative, sustainable, and high-quality engineering solutions
+                tailored to meet the unique needs of our clients. With a legacy
+                of excellence and a forward-thinking approach, we have
+                established ourselves as a leader in the engineering and
+                construction industry in Nigeria and beyond.
               </p>
             </div>
           </div>
