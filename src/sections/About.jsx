@@ -108,7 +108,7 @@ const About = () => {
                 <Center>
                   <Suspense fallback={<CanvasLoader />}>
                     <group
-                      scale={isMobile ? 0.1 : 2}
+                      scale={isMobile ? 0.1 : 0.15}
                       position={[0, -1, 0]}
                       rotation={[0, -0.1, 0]}
                     >
@@ -269,12 +269,12 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="md:col-span-2 md:row-span-3">
+        <div className="md:col-span-2 md:row-span-1">
           <div className="grid-container">
             <img
               src="/assets/grid3.png"
               alt="grid-3"
-              className="h-full sm:h-[266px] h-fit object-contain"
+              className="h-full sm:h-[266px] object-contain"
             />
             <div>
               <p className="grid-headtext">
@@ -291,7 +291,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="xl:col-span-1 xl:row-span-2">
+        <div className="xl:col-span-1 xl:row-span-1">
           <div className="grid-container">
             <img
               src="assets/grid4.png"
@@ -299,7 +299,7 @@ const About = () => {
               className="w-full md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top"
             />
             <div className="space-y-2">
-              <p className="grid-subtext text-center">Contact Me </p>
+              <p className="grid-subtext text-center">Contact Us </p>
               <div className="px-5 copy-container" onClick={handleCopy}>
                 <img
                   src={hasCopied ? "assets/tick.svg" : "assets/copy.svg"}
