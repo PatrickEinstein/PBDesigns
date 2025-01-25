@@ -23,7 +23,7 @@ const Gallery = () => {
         setGallery(res.data);
         toast(res.message, "info");
       }
-    } catch (err: any) {
+    } catch (err) {
       toast("Failed to fetch gallery", "error");
     } finally {
       setIsLoading(false);
@@ -34,7 +34,7 @@ const Gallery = () => {
     fetchGallery();
   }, [fetchGallery]);
 
-  const openModal = (index: number) => {
+  const openModal = (index) => {
     setCurrentImageIndex(index);
     setIsModalOpen(true);
   };
@@ -59,29 +59,25 @@ const Gallery = () => {
         Let The Gallery Speak
       </h1>
       <Loader isLoading={isLoading} />
-      <>
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
-          {gallery.length > 0 ? (
-            gallery.map(
-              ({ _id, picture }: { _id: string; picture: string }, index) => (
-                <div
-                  key={_id}
-                  className="bg-white p-1 max-h-[400px] shadow-md rounded-lg gap-2 cursor-pointer"
-                  onClick={() => openModal(index)}
-                >
-                  <img
-                    alt={_id}
-                    src={picture}
-                    className="h-full w-full object-fill"
-                  />
-                </div>
-              )
-            )
-          ) : (
-            <p className="text-center text-gray-500">No galleries available.</p>
-          )}
-        </div>
-      </>
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+        {gallery.length > 0 ? (
+          gallery.map(({ _id, picture }, index) => (
+            <div
+              key={_id}
+              className="bg-white p-1 max-h-[400px] shadow-md rounded-lg gap-2 cursor-pointer"
+              onClick={() => openModal(index)}
+            >
+              <img
+                alt={_id}
+                src={picture}
+                className="h-full w-full object-fill"
+              />
+            </div>
+          ))
+        ) : (
+          <p className="text-center text-gray-500">No galleries available.</p>
+        )}
+      </div>
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
           <div className="relative w-[90%] max-w-4xl">
@@ -97,7 +93,7 @@ const Gallery = () => {
               className="min-h-[80vh] w-full object-contain"
             />
             <button
-              className="absolute left-4 top-1/2 transform  -translate-y-1/2 text-white text-3xl"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl"
               onClick={showPreviousImage}
             >
               <IoArrowBack className="font-extrabold text-5xl" />

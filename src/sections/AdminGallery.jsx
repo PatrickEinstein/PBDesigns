@@ -11,8 +11,8 @@ const AdminGallery = () => {
   const [gallery, setGallery] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [editingMode, setEditingMode] = useState(false);
-  const [images, setImages] = useState<string[]>([]);
-  const [imagesFiles, setImagesFiles] = useState<File[]>([]);
+  const [images, setImages] = useState([]);
+  const [imagesFiles, setImagesFiles] = useState([]);
   const toast = useToast();
 
   const paginationParams = { page: "1", pageSize: "10" };
@@ -26,7 +26,7 @@ const AdminGallery = () => {
         setGallery(res.data);
         toast(res.message, "info");
       }
-    } catch (err: any) {
+    } catch (err) {
       toast("Failed to fetch gallery", "error");
     } finally {
       setIsLoading(false);
@@ -65,7 +65,7 @@ const AdminGallery = () => {
     }
   };
 
-  const handleDeleteGallery = async (_id: string) => {
+  const handleDeleteGallery = async (_id) => {
     setIsLoading(true);
     try {
       const response = await galleryService.DeleteGallery(_id);
@@ -99,7 +99,7 @@ const AdminGallery = () => {
           <div className="grid grid-cols-2 gap-6 relative">
             {gallery.length > 0 ? (
               gallery.map(
-                ({ _id, picture }: { _id: string; picture: string }, index) => (
+                ({ _id, picture }, index) => (
                   <div
                     key={_id}
                     className="bg-white p-1 shadow-md rounded-lg flex flex-col gap-2"
