@@ -32,7 +32,11 @@ const SocialLinks = [
 const Footer = () => {
   return (
     <section className="c-space pt-7 pb-3 border-t border-black-300 flex justify-between items-center flex-wrap flex-col gap-5">
-      <div className="text-white-500 flex gap-2">
+      <div className="text-white-500 flex flex-wrap gap-2">
+        <p>Terms and Conditions</p>
+        <p>|</p>
+        <p>Privacy Policy</p>
+        <p>|</p>
         <p>Media</p>
         <p>|</p>
         <p>Blogs</p>
@@ -43,7 +47,17 @@ const Footer = () => {
         ))}
       </div>
       <p className="text-white-500">
-        ©️ 2024 Mohammed Olalekan Patrick. All rights reserved
+        <p>©️ {new Date().getFullYear()} PB Designs All rights reserved</p>
+      </p>
+      <p className="text-white-700">
+        {" "}
+        web app built by{" "}
+        <a
+          href="https://patrick-xi.vercel.app/"
+          className="underline text-blue-200"
+        >
+          Olalekan
+        </a>
       </p>
     </section>
   );
