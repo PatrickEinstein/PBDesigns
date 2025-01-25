@@ -90,6 +90,12 @@ const AdminGallery = () => {
       <Loader isLoading={isLoading} />
       {!editingMode ? (
         <>
+          <button
+            className="mt-6 bg-blue-500 hover:bg-blue-600 text-white mb-10 px-4 py-2 rounded-md"
+            onClick={() => setEditingMode(true)}
+          >
+            Add New Gallery
+          </button>
           <div className="grid grid-cols-2 gap-6 relative">
             {gallery.length > 0 ? (
               gallery.map(
@@ -121,12 +127,6 @@ const AdminGallery = () => {
               </p>
             )}
           </div>
-          <button
-            className="mt-6 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-            onClick={() => setEditingMode(true)}
-          >
-            Add New Gallery
-          </button>
         </>
       ) : (
         <div>

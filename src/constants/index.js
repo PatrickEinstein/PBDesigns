@@ -1,5 +1,4 @@
-import ModernHome3 from "../components/ModernHome3";
-import ModernHome4 from "../components/ModernHome4";
+
 
 export const navLinks = [
   {
