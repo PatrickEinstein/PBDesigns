@@ -8,9 +8,9 @@ import {useGSAP} from "@gsap/react";
 import gsap from "gsap"
 
 const DemoComputer = (props) => {
-    const group = useRef()
     const {nodes, materials} = useGLTF('/models/computer.glb')
     const txt = useVideoTexture(props.texture ? props.texture : '/textures/project/project1.mp4')
+    const group = useRef() // this was on he very first line or ---line 11
     useEffect(() => {
         if (txt) {
             txt.flipY = false

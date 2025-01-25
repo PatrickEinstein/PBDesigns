@@ -16,8 +16,8 @@ const Clients = () => {
                                     {review}
                                 </p>
                                 <div className='client-content'>
-                                    <div className='flex gap-3'>
-                                        <img src={img} alt={name} className='w-12 h-12 rounded-full'/>
+                                    <div className='flex flex-row justify-between px-3 w-full'>
+                                        <img src={img} alt={name} className='h-12 rounded-full'/>
                                         <div className='flex flex-col'>
                                             <p className='font-semibold text-white-800'>
                                                 {name}
@@ -26,11 +26,11 @@ const Clients = () => {
                                                 {position}
                                             </p>
                                         </div>
-                                        <div className='flex self-end items-center gap-2'>
+                                        <div className='flex gap-1 items-center'>
                                             {
                                                 Array.from({length: 5}).map((_, index) => (
                                                     <img key={index} src="/assets/star.png" alt='start'
-                                                         className="w-5 h-5"/>
+                                                         className="w-3 h-5"/>
                                                 ))
                                             }
                                         </div>

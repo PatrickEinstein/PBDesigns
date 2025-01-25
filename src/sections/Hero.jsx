@@ -59,7 +59,7 @@ const Hero = () => {
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
   return (
     <section
-      className="min-h-screen w-full flex flex-col relative "
+      className="h-[85vh] w-full flex flex-col relative "
       id="home"
     >
       <div className="w-full mx-auto flex flex-col mt-20 md:mt-20 c-space gap-3">
@@ -76,7 +76,7 @@ const Hero = () => {
           <directionalLight position={[0, 10, 5]} />
           <Center>
             <Suspense fallback={<CanvasLoader />}>
-              <group scale={isMobile ? 1 : 2} position={[0, -1, 0]} rotation={[0, -0.1, 0]}>
+              <group scale={isMobile ? 1.3 : 2} position={[0, -1, 0]} rotation={[0, -0.1, 0]}>
                 <ModernHome1 />
               </group>
             </Suspense>

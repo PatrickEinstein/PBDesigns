@@ -1,3 +1,6 @@
+import ModernHome3 from "../components/ModernHome3";
+import ModernHome4 from "../components/ModernHome4";
+
 export const navLinks = [
   {
     id: 1,
@@ -71,6 +74,7 @@ export const myProjects = [
       boxShadow: "0px 0px 60px 0px #AA3C304D",
     },
     spotlight: "/assets/spotlight1.png",
+    // model: <ModernHome3 />,
     tags: [
       {
         id: 1,
@@ -108,6 +112,7 @@ export const myProjects = [
       boxShadow: "0px 0px 60px 0px #2F6DB54D",
     },
     spotlight: "/assets/spotlight2.png",
+    // model: <ModernHome4 />,
     tags: [
       {
         id: 1,
@@ -147,6 +152,7 @@ export const myProjects = [
       boxShadow: "0px 0px 60px 0px rgba(35, 131, 96, 0.3)",
     },
     spotlight: "/assets/spotlight3.png",
+    // model: <ModernHome4 />,
     tags: [
       {
         id: 1,
@@ -311,5 +317,43 @@ export const workExperiences = [
       "As a Junior Civil Engineer, I assisted in project planning, material estimation, and quality assurance. I collaborated with senior engineers to analyze structural designs and provided support in preparing detailed project reports.",
     icon: "/assets/notion.svg",
     animation: "salute",
+  },
+];
+
+export const Services = [
+  {
+    headtext: "Comprehensive Engineering Solutions Tailored to Your Needs",
+    subtext:
+      "At PB Designs Limited, we offer a wide range of services designed to meet the diverse needs of our clients. Our expertise spans multiple disciplines, ensuring that we can provide comprehensive solutions for any project.",
+  },
+  {
+    headtext: "Automation and Control Systems Design and Implementation",
+    subtext:
+      "In today's fast-paced industrial environment, automation is key to maintaining competitiveness. Our team designs and implements advanced control systems that streamline operations, enhance productivity, and reduce costs. By integrating the latest technologies, we create customized solutions that align with your specific operational requirements.",
+  },
+  {
+    headtext: "Corrosion Control and Cathodic Protection",
+    subtext:
+      "Corrosion can significantly impact the longevity and safety of your assets. Our corrosion control strategies, including cathodic protection, are designed to prevent deterioration, ensuring the durability and reliability of your infrastructure. We conduct thorough assessments to develop tailored solutions that mitigate corrosion risks effectively.",
+  },
+  {
+    headtext: "Pipeline Construction",
+    subtext:
+      "Pipelines are the lifelines of energy and resource distribution. Our comprehensive pipeline construction services encompass planning, design, procurement, installation, and commissioning. We adhere to stringent safety and environmental standards, delivering pipelines that are efficient, reliable, and sustainable.",
+  },
+  {
+    headtext: "Industrial Building Construction",
+    subtext:
+      "The foundation of any successful industrial operation lies in its infrastructure. We specialize in constructing industrial buildings that meet international standards, focusing on functionality, safety, and scalability. Our designs are tailored to support your operational needs, providing a conducive environment for productivity and growth.",
+  },
+  {
+    headtext: "Non-Destructive Testing Services",
+    subtext:
+      "Ensuring the integrity of materials and structures is crucial for safety and performance. Our non-destructive testing services, including Ultrasonic Thickness Gauging, Magnetic Particle Inspection (MPI), Positive Material Identification (PMI), and Hardness Testing, provide accurate assessments without causing damage. These services help in early detection of potential issues, allowing for proactive maintenance and prevention of failures.",
+  },
+  {
+    headtext: "Casing and Tubing Inspection",
+    subtext:
+      "In the oil and gas industry, the integrity of casing and tubing is vital for safe and efficient operations. Our inspection services utilize advanced technologies to detect defects, corrosion, or wear, ensuring compliance with industry standards and preventing costly downtimes.",
   },
 ];

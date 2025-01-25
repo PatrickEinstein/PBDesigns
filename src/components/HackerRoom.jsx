@@ -28,16 +28,11 @@ function HackerRoom(props) {
     },
   ];
 
-  const groupProps = {
-    // position: [-100.366, -1.254, -80.867],
-    // rotation: [-50, -80, 60],
-    scale: [0.1, 0.1, 0.1],
-  };
 
   return (
     <group {...props} dispose={null}>
       {meshes.map(({ geometry, material }, index) => (
-        <group key={index} {...groupProps}>
+        <group key={index} >
           <mesh
             castShadow
             receiveShadow

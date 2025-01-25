@@ -7,7 +7,7 @@ import { Center, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import HeroCamera from "../components/HeroCamera.jsx";
 import HackerRoom from "../components/HackerRoom.jsx";
 import { useMediaQuery } from "react-responsive";
-import { calculateSizes } from "../constants/index.js";
+import { calculateSizes, Services } from "../constants/index.js";
 import DemoComputer from "../components/DemoComputer.jsx";
 import ModernHome1 from "../components/ModernHome1.jsx";
 import ModernHome2 from "../components/ModernHome2.jsx";
@@ -33,7 +33,7 @@ const About = () => {
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container">
             <img
-              src="/assets/me-pat.png"
+              src="/assets/pb-team.jpg"
               alt="grid-1"
               className="w-full sm:h-[276px] h-fit object-contain"
             />
@@ -74,26 +74,26 @@ const About = () => {
             <div>
               <p className="grid-headtext">Our Values</p>
 
-              <ul className="list-disc text-white-800 leading-loose">
+              <ul className=" flex flex-col gap-5 list-none text-white-800 leading-loose">
                 <li>
-                  Integrity: We conduct our business with the highest ethical
-                  standards, fostering trust and transparency in all our
-                  engagements.
+                  <span className="font-bold">Integrity:</span> We conduct our
+                  business with the highest ethical standards, fostering trust
+                  and transparency in all our engagements.
                 </li>
                 <li>
-                  Excellence: We strive for superior quality in every project we
-                  undertake, ensuring outcomes that not only meet but exceed
-                  expectations.
+                  <span className="font-bold">Excellence:</span> We strive for
+                  superior quality in every project we undertake, ensuring
+                  outcomes that not only meet but exceed expectations.
                 </li>
                 <li>
-                  Innovation: We embrace new technologies and methodologies to
-                  deliver cutting-edge solutions that drive progress and
-                  efficiency.
+                  <span className="font-bold">Innovation:</span> We embrace new
+                  technologies and methodologies to deliver cutting-edge
+                  solutions that drive progress and efficiency.
                 </li>
                 <li>
-                  Collaboration: We believe in building strong relationships
-                  with our clients, partners, and communities, working together
-                  to achieve shared goals.
+                  <span className="font-bold">Collaboration: </span>We believe
+                  in building strong relationships with our clients, partners,
+                  and communities, working together to achieve shared goals.
                 </li>
               </ul>
             </div>
@@ -108,9 +108,9 @@ const About = () => {
                 <Center>
                   <Suspense fallback={<CanvasLoader />}>
                     <group
-                      scale={isMobile ? 0.1 : 0.15}
+                      scale={isMobile ? 0.13 : 0.15}
                       position={[0, -1, 0]}
-                      rotation={[0, -0.1, 0]}
+                      rotation={[0.3, 1.3, 0.3]}
                     >
                       <ModernHome2 />
                       {/* <DemoComputer /> */}
@@ -123,113 +123,15 @@ const About = () => {
             <div>
               <p className="grid-headtext">Services</p>
 
-              <ul className="list-disc text-white-800 leading-loose">
-                <li>
-                  <div>
-                    <p className="grid-headtext">
-                      Comprehensive Engineering Solutions Tailored to Your Needs
-                    </p>
-                    <p className="grid-subtext">
-                      At PB Designs Limited, we offer a wide range of services
-                      designed to meet the diverse needs of our clients. Our
-                      expertise spans multiple disciplines, ensuring that we can
-                      provide comprehensive solutions for any project.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <p className="grid-headtext">
-                      Automation and Control Systems Design and Implementation
-                    </p>
-                    <p className="grid-subtext">
-                      In today's fast-paced industrial environment, automation
-                      is key to maintaining competitiveness. Our team designs
-                      and implements advanced control systems that streamline
-                      operations, enhance productivity, and reduce costs. By
-                      integrating the latest technologies, we create customized
-                      solutions that align with your specific operational
-                      requirements.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <p className="grid-headtext">
-                      Corrosion Control and Cathodic Protection
-                    </p>
-                    <p className="grid-subtext">
-                      Corrosion can significantly impact the longevity and
-                      safety of your assets. Our corrosion control strategies,
-                      including cathodic protection, are designed to prevent
-                      deterioration, ensuring the durability and reliability of
-                      your infrastructure. We conduct thorough assessments to
-                      develop tailored solutions that mitigate corrosion risks
-                      effectively.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <p className="grid-headtext">Pipeline Construction</p>
-                    <p className="grid-subtext">
-                      Pipelines are the lifelines of energy and resource
-                      distribution. Our comprehensive pipeline construction
-                      services encompass planning, design, procurement,
-                      installation, and commissioning. We adhere to stringent
-                      safety and environmental standards, delivering pipelines
-                      that are efficient, reliable, and sustainable.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <p className="grid-headtext">
-                      Industrial Building Construction
-                    </p>
-                    <p className="grid-subtext">
-                      The foundation of any successful industrial operation lies
-                      in its infrastructure. We specialize in constructing
-                      industrial buildings that meet international standards,
-                      focusing on functionality, safety, and scalability. Our
-                      designs are tailored to support your operational needs,
-                      providing a conducive environment for productivity and
-                      growth.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <p className="grid-headtext">
-                      Non-Destructive Testing Services
-                    </p>
-                    <p className="grid-subtext">
-                      Ensuring the integrity of materials and structures is
-                      crucial for safety and performance. Our non-destructive
-                      testing services, including Ultrasonic Thickness Gauging,
-                      Magnetic Particle Inspection (MPI), Positive Material
-                      Identification (PMI), and Hardness Testing, provide
-                      accurate assessments without causing damage. These
-                      services help in early detection of potential issues,
-                      allowing for proactive maintenance and prevention of
-                      failures.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <p className="grid-headtext">
-                      Casing and Tubing Inspection
-                    </p>
-                    <p className="grid-subtext">
-                      In the oil and gas industry, the integrity of casing and
-                      tubing is vital for safe and efficient operations. Our
-                      inspection services utilize advanced technologies to
-                      detect defects, corrosion, or wear, ensuring compliance
-                      with industry standards and preventing costly downtimes.
-                    </p>
-                  </div>
-                </li>
+              <ul className="flex flex-col gap-5 list-none text-white-800 leading-loose">
+                {Services.map((item, index) => (
+                  <li key={index}>
+                    <div>
+                      <p className="grid-headtext">{item.headtext}</p>
+                      <p className="grid-subtext">{item.subtext}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -278,7 +180,7 @@ const About = () => {
             />
             <div>
               <p className="grid-headtext">
-                My passion for Cutting edge technology in Engineering{" "}
+                Our passion for Cutting edge technology in Engineering{" "}
               </p>
               <p className="grid-subtext">
                 At PB Designs Limited, we are committed to delivering

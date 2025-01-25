@@ -4,11 +4,18 @@ import { Center, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import CanvasLoader from "../components/CanvasLoader.jsx";
 import DemoComputer from "../components/DemoComputer.jsx";
+import HackerRoom from "../components/HackerRoom.jsx";
+import { useMediaQuery } from "react-responsive";
+import ModernHome3 from "../components/ModernHome3.jsx";
+import ModernHome4 from "../components/ModernHome4.jsx";
 
 const projectCount = myProjects.length;
 const Project = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const currentProject = myProjects[selectedProjectIndex];
+  const isSmall = useMediaQuery({ maxWidth: 440 });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isTablet = useMediaQuery({ maxWidth: 1024 });
 
   const handleNavigation = (direction) => {
     setSelectedProjectIndex((prevIndex) => {
@@ -19,6 +26,21 @@ const Project = () => {
       }
     });
   };
+
+  const renderModel = () => {
+    // console.log(selectedProjectIndex); // For debugging
+    switch (selectedProjectIndex) {
+      case 0:
+        return <ModernHome3 />;
+      case 1:
+        return <ModernHome4 />;
+      case 2:
+        return <ModernHome3 />;
+      default:
+        return <ModernHome3 />; // Ensure the component is returned here
+    }
+  };
+
   return (
     <section className="c-space my-20">
       <p className="head-text">Our Projects</p>
@@ -60,13 +82,29 @@ const Project = () => {
             <directionalLight position={[0, 10, 5]} />
             <Center>
               <Suspense fallback={<CanvasLoader />}>
+                <group
+                  scale={isMobile ? 0.2 : 2}
+                  position={[0, -1, 0]}
+                  rotation={[0, -0.1, 0]}
+                >
+                  {renderModel()}
+                </group>
+              </Suspense>
+            </Center>
+            <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={true} />
+          </Canvas>
+          {/* <Canvas>
+            <ambientLight intensity={Math.PI} />
+            <directionalLight position={[0, 10, 5]} />
+            <Center>
+              <Suspense fallback={<CanvasLoader />}>
                 <group scale={2} position={[0, -3, 0]} rotation={[0, -0.1, 0]}>
                   <DemoComputer texture={currentProject.texture} />
                 </group>
               </Suspense>
             </Center>
             <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
-          </Canvas>
+          </Canvas> */}
         </div>
       </div>
     </section>
