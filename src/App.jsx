@@ -12,8 +12,8 @@ import {
   Routes,
   useLocation,
 } from "react-router";
-import Gallery from "./sections/Gallery.tsx";
-import AdminGallery from "./sections/AdminGallery.tsx";
+import Gallery from "./sections/Gallery.jsx";
+import AdminGallery from "./sections/AdminGallery.jsx";
 import { useEffect } from "react";
 
 const App = () => {
