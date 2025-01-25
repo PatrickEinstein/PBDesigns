@@ -28,9 +28,9 @@ const Contact = () => {
         <div className="contact-container">
           <h3 className="head-text">Let's talk</h3>
           <p className="text-lg text-white-600 mt-3">
-            Are you looking to build a new webapp or mobile app, improve your
-            existing platform, payment gateways or digital services, I'm here to
-            help you
+            Explore our project portfolio to see how PB Designs Limited can
+            bring your vision to life. Contact us to discuss your upcoming
+            projects and how we can assist in achieving your objectives.
           </p>
           <div className="mt-12 flex flex-col space-y-7">
             <label className="space-y-3">

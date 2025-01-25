@@ -22,7 +22,7 @@ export const WhatsAppButton = ({ name, email, textmessage }) => {
   return (
     <button
       onClick={handleWhatsAppClick}
-      className="bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition"
+      className="bg-black-300 border text-white font-bold py-5  px-4 rounded-lg hover:bg-green-600 transition"
     >
       Contact Us on WhatsApp
     </button>
