@@ -16,9 +16,7 @@ const Carousel = () => {
     );
   };
 
-  setInterval(() => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselsImages.length);
-  }, 5000);
+
 
   return (
     <div className="relative mx-auto h-full bg-white">
