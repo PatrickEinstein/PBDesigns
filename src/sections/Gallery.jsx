@@ -6,19 +6,21 @@ import { IoClose, IoArrowBack, IoArrowForward } from "react-icons/io5";
 
 const Gallery = () => {
   const galleryService = new GalleryFetches();
-  const [gallery, setGallery] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [gallery, setGallery] = useState([]); 
+  const [isLoading, setIsLoading] = useState(false); 
+  const [loadingMore, setLoadingMore] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); 
+  const [paginationParams, setPaginationParams] = useState(1);
   const toast = useToast();
 
-  const paginationParams = { page: "1", pageSize: "10" };
-
+  // Fetch initial gallery data
   const fetchGallery = useCallback(async () => {
     setIsLoading(true);
     try {
-      const res = await galleryService.GetAllGallery(paginationParams);
-      console.log(res);
+      const res = await galleryService.GetAllGallery(
+        paginationParams.toString()
+      );
       if (res.status) {
         setGallery(res.data);
         toast(res.message, "info");
@@ -28,12 +30,49 @@ const Gallery = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [toast]);
+  }, [paginationParams, toast]);
 
+  // Fetch more gallery data on scroll
+  const fetchMoreGallery = useCallback(async () => {
+    if (loadingMore) return; // Prevent duplicate calls
+    setLoadingMore(true);
+    try {
+      const res = await galleryService.GetAllGallery(
+        (paginationParams + 1).toString()
+      );
+      if (res.status && res.data.length > 0) {
+        setGallery((prev) => [...prev, ...res.data]); // Append new data
+        setPaginationParams((prevPage) => prevPage + 1); // Increment page
+      }
+    } catch (err) {
+      toast("Failed to fetch more gallery data", "error");
+    } finally {
+      setLoadingMore(false);
+    }
+  }, [loadingMore, paginationParams, toast]);
+
+  // Infinite scroll listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop >=
+          document.documentElement.offsetHeight - 50 &&
+        !loadingMore
+      ) {
+        fetchMoreGallery();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [fetchMoreGallery, loadingMore]);
+
+  // Fetch initial gallery data on mount
   useEffect(() => {
     fetchGallery();
   }, [fetchGallery]);
 
+  // Modal handlers
   const openModal = (index) => {
     setCurrentImageIndex(index);
     setIsModalOpen(true);
@@ -48,8 +87,8 @@ const Gallery = () => {
   };
 
   const showPreviousImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      (prevIndex - 1 + gallery.length) % gallery.length
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex - 1 + gallery.length) % gallery.length
     );
   };
 
@@ -78,6 +117,11 @@ const Gallery = () => {
           <p className="text-center text-gray-500">No galleries available.</p>
         )}
       </div>
+      {loadingMore && (
+        <div className="text-center mt-4">
+          <p>Loading more...</p>
+        </div>
+      )}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
           <div className="relative w-[90%] max-w-4xl">

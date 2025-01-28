@@ -3,7 +3,7 @@ import { ClipLoader } from "react-spinners";
 const Loader = ({ isLoading }: { isLoading: boolean }) => {
   return (
     isLoading && (
-      <section className="fixed inset-0 z-50 flex items-center justify-center bg-cyan-600 bg-opacity-100">
+      <section className="fixed inset-0 z-50 flex items-center justify-center bg-cyan-600 bg-opacity-20">
         <ClipLoader
           color="white"
           loading={isLoading}

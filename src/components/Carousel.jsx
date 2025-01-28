@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { carouselsImages } from '../constants';
-
-
-
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { carouselsImages } from "../constants";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,25 +16,30 @@ const Carousel = () => {
     );
   };
 
+  setInterval(() => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselsImages.length);
+  }, 5000);
+
   return (
     <div className="relative mx-auto h-full bg-white">
       <div className="overflow-hidden rounded-lg shadow-lg">
         <div className=" h-full">
           <AnimatePresence>
-            {carouselsImages.map(({img}, index) => (
-              index === currentIndex && (
-                <motion.img
-                  key={img}
-                  src={img}
-                  alt={`Slide ${index + 1}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              )
-            ))}
+            {carouselsImages.map(
+              ({ img }, index) =>
+                index === currentIndex && (
+                  <motion.img
+                    key={img}
+                    src={img}
+                    alt={`Slide ${index + 1}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 2.0 }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                )
+            )}
           </AnimatePresence>
         </div>
       </div>

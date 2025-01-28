@@ -13,14 +13,8 @@ export class GalleryFetches {
     return res;
   };
 
-  GetAllGallery = async ({
-    page,
-    pageSize,
-  }: {
-    page: string;
-    pageSize: string;
-  }) => {
-    const res = await HttpGetCallerWhole(`gallery/${page}/${pageSize}`, {
+  GetAllGallery = async (page:string) => {
+    const res = await HttpGetCallerWhole(`gallery/${page}/10`, {
       "Content-Type": "application/json",
     });
     return res;
