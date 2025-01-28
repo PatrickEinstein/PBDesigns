@@ -5,13 +5,7 @@ import Project from "./sections/Project.jsx";
 import Clients from "./sections/Clients.jsx";
 import Contact from "./sections/Contact.jsx";
 import Footer from "./sections/Footer.jsx";
-import Experience from "./sections/Experience.jsx";
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  useLocation,
-} from "react-router";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router";
 import Gallery from "./sections/Gallery.jsx";
 import AdminGallery from "./sections/AdminGallery.jsx";
 import { useEffect } from "react";
@@ -20,18 +14,17 @@ const App = () => {
   const ScrollToSection = () => {
     const location = useLocation();
     useEffect(() => {
+      console.log(location);
+      const hash = location.hash;
       if (location.pathname === "/") {
         const hash = location.hash.substring(1); // Get section ID without '#'
         if (hash) {
           const section = document.getElementById(hash);
           if (section) {
-            console.log(`Location in  if`, location, `section in  if`, section);
-
             section.scrollIntoView({ behavior: "smooth" });
           }
         }
       } else if (location.pathname == "/gallery" && location.hash !== "") {
-        console.log(`Location in else  if`, location);
         window.location = `/${location.hash}`;
       }
     }, [location]);

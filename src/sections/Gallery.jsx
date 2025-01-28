@@ -124,9 +124,9 @@ const Gallery = () => {
       )}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-          <div className="relative w-[90%] max-w-4xl">
+          <div className="relative md:w-[40%] w-[90%] max-w-4xl">
             <button
-              className="absolute top-4 right-4 text-white text-2xl"
+              className="absolute top-40 right-4 text-white text-2xl"
               onClick={closeModal}
             >
               <IoClose className="font-extrabold text-5xl" />
