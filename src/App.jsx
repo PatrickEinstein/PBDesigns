@@ -51,7 +51,7 @@ const App = () => {
           }
         />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="adminGallery" element={<AdminGallery />} />
+        <Route path="/adminGallery" element={<AdminGallery />} />
       </Routes>
     </BrowserRouter>
   );
