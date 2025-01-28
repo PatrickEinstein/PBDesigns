@@ -1,13 +1,7 @@
 import React, { Suspense, useState } from "react";
 import { myProjects } from "../constants/index.js";
-import { Center, OrbitControls } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import CanvasLoader from "../components/CanvasLoader.jsx";
-import DemoComputer from "../components/DemoComputer.jsx";
-import HackerRoom from "../components/HackerRoom.jsx";
 import { useMediaQuery } from "react-responsive";
-import ModernHome3 from "../components/ModernHome3.jsx";
-import ModernHome4 from "../components/ModernHome4.jsx";
+
 
 const projectCount = myProjects.length;
 const Project = () => {
@@ -27,19 +21,6 @@ const Project = () => {
     });
   };
 
-  const renderModel = () => {
-    // console.log(selectedProjectIndex); // For debugging
-    switch (selectedProjectIndex) {
-      case 0:
-        return <ModernHome3 />;
-      case 1:
-        return <ModernHome4 />;
-      case 2:
-        return <ModernHome3 />;
-      default:
-        return <ModernHome3 />; // Ensure the component is returned here
-    }
-  };
 
   return (
     <section className="c-space my-20 " id="work">
@@ -77,37 +58,28 @@ const Project = () => {
           </div>
         </div>
         <div className="border border-black-300 bg-black-200 rounded-lg h-96 m:h-full">
-          <Canvas>
-            <ambientLight intensity={Math.PI} />
-            <directionalLight position={[0, 10, 5]} />
-            <Center>
-              <Suspense fallback={<CanvasLoader />}>
-                <group
-                  scale={isMobile ? 0.2 : 2}
-                  position={[0, -1, 0]}
-                  rotation={[0, -0.1, 0]}
-                >
-                  {renderModel()}
-                </group>
-              </Suspense>
-            </Center>
-            <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={true} />
-          </Canvas>
-          {/* <Canvas>
-            <ambientLight intensity={Math.PI} />
-            <directionalLight position={[0, 10, 5]} />
-            <Center>
-              <Suspense fallback={<CanvasLoader />}>
-                <group scale={2} position={[0, -3, 0]} rotation={[0, -0.1, 0]}>
-                  <DemoComputer texture={currentProject.texture} />
-                </group>
-              </Suspense>
-            </Center>
-            <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
-          </Canvas> */}
+        <img src={currentProject.logo} alt={currentProject.logo} className="h-full w-full object-cover"/>
         </div>
       </div>
     </section>
   );
 };
 export default Project;
+
+
+{/* <Canvas>
+<ambientLight intensity={Math.PI} />
+<directionalLight position={[0, 10, 5]} />
+<Center>
+  <Suspense fallback={<CanvasLoader />}>
+    <group
+      scale={isMobile ? 0.2 : 0.3}
+      position={[0, -1, 0]}
+      rotation={[0, -0.1, 0]}
+    >
+      {renderModel()}
+    </group>
+  </Suspense>
+</Center>
+<OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={true} />
+</Canvas> */}

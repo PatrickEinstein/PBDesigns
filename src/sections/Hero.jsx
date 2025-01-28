@@ -1,65 +1,13 @@
 import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Center, OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import HackerRoom from "../components/HackerRoom.jsx";
-import CanvasLoader from "../components/CanvasLoader.jsx";
-// import { Leva, useControls } from "leva";
-import { useMediaQuery } from "react-responsive";
-import { calculateSizes } from "../constants/index.js";
-import Target from "../components/Target.jsx";
-import ReactLogo from "../components/ReactLogo.jsx";
-import Cube from "../components/Cube.jsx";
-import Rings from "../components/Rings.jsx";
-import HeroCamera from "../components/HeroCamera.jsx";
 import Button from "../components/Button.jsx";
-import ModernHome1 from "../components/ModernHome1.jsx";
+
+import Carousel from "../components/Carousel.jsx";
 
 const Hero = () => {
-  //   const x = useControls("HackerRoom", {
-  //     positionX: {
-  //       value: 2.5,
-  //       min: -10,
-  //       max: 50,
-  //     },
-  //     positionY: {
-  //       value: 2.5,
-  //       min: -10,
-  //       max: 50,
-  //     },
-  //     positionZ: {
-  //       value: 2.5,
-  //       min: -10,
-  //       max: 50,
-  //     },
-  //     rotationX: {
-  //       value: 0,
-  //       min: -10,
-  //       max: 50,
-  //     },
-  //     rotationY: {
-  //       value: 0,
-  //       min: -10,
-  //       max: 50,
-  //     },
-  //     rotationZ: {
-  //       value: 0,
-  //       min: -10,
-  //       max: 50,
-  //     },
-  //     scale: {
-  //       value: 1,
-  //       min: 0.1,
-  //       max: 10,
-  //     },
-  //   }); // I use this if i want to use LEVA to determine my position
-  const isSmall = useMediaQuery({ maxWidth: 440 });
-  const isMobile = useMediaQuery({ maxWidth: 768 });
-  const isTablet = useMediaQuery({ maxWidth: 1024 });
-
-  const sizes = calculateSizes(isSmall, isMobile, isTablet);
+ 
   return (
     <section
-      className="h-[85vh] w-full flex flex-col relative "
+      className="min-h-screen w-full flex flex-col relative "
       id="home"
     >
       <div className="w-full mx-auto flex flex-col mt-20 md:mt-20 c-space gap-3">
@@ -70,21 +18,10 @@ const Hero = () => {
           Engineering Excellence Redefined
         </p>
       </div>
-      <div className="w-full h-full absolute inset-0 ">
-        <Canvas>
-          <ambientLight intensity={Math.PI} />
-          <directionalLight position={[0, 10, 5]} />
-          <Center>
-            <Suspense fallback={<CanvasLoader />}>
-              <group scale={isMobile ? 1.3 : 2} position={[0, -1, 0]} rotation={[0, -0.1, 0]}>
-                <ModernHome1 />
-              </group>
-            </Suspense>
-          </Center>
-          <OrbitControls maxPolarAngle={Math.PI} enableZoom={true} />
-        </Canvas>
+      <div className="w-full my-auto h-[80vh]">
+      <Carousel/>
       </div>
-      <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
+      <div className="absolute bottom-7 left-0 mt-10 right-0 w-full z-10 c-space">
         <a href="#about" className="w-fit">
           <Button
             name="Let's work together"
@@ -98,3 +35,16 @@ const Hero = () => {
 };
 
 export default Hero;
+
+{/* <Canvas>
+<ambientLight intensity={Math.PI} />
+<directionalLight position={[0, 10, 5]} />
+<Center>
+  <Suspense fallback={<CanvasLoader />}>
+    <group scale={isMobile ? 1.3 : 2} position={[0, -1, 0]} rotation={[0, -0.1, 0]}>
+      <ModernHome1 />
+    </group>
+  </Suspense>
+</Center>
+<OrbitControls maxPolarAngle={Math.PI} enableZoom={true} />
+</Canvas> */}

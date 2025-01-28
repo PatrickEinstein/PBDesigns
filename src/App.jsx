@@ -46,12 +46,12 @@ const App = () => {
         <Route
           path="/"
           element={
-            <main className="w-screen">
+            <main className="w-full overflow-x-hidden">
               <Hero />
               <About />
               <Project />
               <Clients />
-              <Experience />
+              {/* <Experience /> */}
               <Contact />
               <Footer />
             </main>

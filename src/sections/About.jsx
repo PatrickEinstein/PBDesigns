@@ -1,16 +1,12 @@
 import React, { Suspense, useState } from "react";
 import Globe from "react-globe.gl";
-import Button from "../components/Button.jsx";
+
 import { Canvas } from "@react-three/fiber";
 import CanvasLoader from "../components/CanvasLoader.jsx";
 import { Center, OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import HeroCamera from "../components/HeroCamera.jsx";
-import HackerRoom from "../components/HackerRoom.jsx";
+
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes, Services } from "../constants/index.js";
-import DemoComputer from "../components/DemoComputer.jsx";
-import ModernHome1 from "../components/ModernHome1.jsx";
-import ModernHome2 from "../components/ModernHome2.jsx";
 
 const About = () => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
@@ -29,7 +25,7 @@ const About = () => {
 
   return (
     <section className="c-space my-20" id="about">
-      <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-3 grid-cols-1 gap-5 h-full">
+      <div className="grid  xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container">
             <img
@@ -99,26 +95,17 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="cols-span-1 xl:row-span-3">
+        <div className="cols-span-1 xl:row-span">
           <div className="grid-container">
             <div className="w-full h-[500px]">
-              <Canvas>
-                <ambientLight intensity={Math.PI} />
-                <directionalLight position={[0, 10, 5]} />
-                <Center>
-                  <Suspense fallback={<CanvasLoader />}>
-                    <group
-                      scale={isMobile ? 0.13 : 0.15}
-                      position={[0, -1, 0]}
-                      rotation={[0.3, 1.3, 0.3]}
-                    >
-                      <ModernHome2 />
-                      {/* <DemoComputer /> */}
-                    </group>
-                  </Suspense>
-                </Center>
-                <OrbitControls maxPolarAngle={Math.PI} enableZoom={true} />
-              </Canvas>
+              <div className=" bg-black-200 rounded-lg h-96 m:h-full">
+                <img
+                  src="/assets/Gallery/PB1.jpg"
+                  alt="/assets/Gallery/PB1.jpg"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
             </div>
             <div>
               <p className="grid-headtext">Services</p>

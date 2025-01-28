@@ -1,5 +1,3 @@
-
-
 export const navLinks = [
   {
     id: 1,
@@ -25,6 +23,51 @@ export const navLinks = [
     id: 5,
     name: "Gallery",
     href: "/gallery",
+  },
+];
+
+export const carouselsImages = [
+  {
+    img: "assets/Gallery/gal1.jpg",
+  },
+  {
+    img: "assets/Gallery/gal2.jpg",
+  },
+  {
+    img: "assets/Gallery/gal3.jpg",
+  },
+  {
+    img: "assets/Gallery/gal3.jpg",
+  },
+  {
+    img: "assets/Gallery/gal4.jpg",
+  },
+  {
+    img: "assets/Gallery/gal5.jpg",
+  },
+  {
+    img: "assets/Gallery/gal6.jpg",
+  },
+  {
+    img: "assets/Gallery/gal7.jpg",
+  },
+  {
+    img: "assets/Gallery/gal8.jpg",
+  },
+  {
+    img: "assets/Gallery/gal9.jpg",
+  },
+  {
+    img: "assets/Gallery/gal10.jpg",
+  },
+  {
+    img: "assets/Gallery/gal11.jpg",
+  },
+  {
+    img: "assets/Gallery/gal2.jpg",
+  },
+  {
+    img: "assets/Gallery/gal3.jpg",
   },
 ];
 
@@ -71,36 +114,8 @@ export const myProjects = [
       "Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.",
     href: "https://www.youtube.com/watch?v=zfAb95tJvZQ",
     texture: "/textures/project/project1.mp4",
-    logo: "/assets/project-logo1.png",
-    logoStyle: {
-      backgroundColor: "#2A1816",
-      border: "0.2px solid #36201D",
-      boxShadow: "0px 0px 60px 0px #AA3C304D",
-    },
-    spotlight: "/assets/spotlight1.png",
-    // model: <ModernHome3 />,
-    tags: [
-      {
-        id: 1,
-        name: "React.js",
-        path: "/assets/react.svg",
-      },
-      {
-        id: 2,
-        name: "TailwindCSS",
-        path: "assets/tailwindcss.png",
-      },
-      {
-        id: 3,
-        name: "TypeScript",
-        path: "/assets/typescript.png",
-      },
-      {
-        id: 4,
-        name: "Framer Motion",
-        path: "/assets/framer.png",
-      },
-    ],
+    logo: "assets/Gallery/LC1.jpg",
+
   },
   {
     title: "3-Bedroom Terrace Building",
@@ -109,36 +124,7 @@ export const myProjects = [
       "With LiveDoc, users can experience the future of collaboration, where multiple contributors work together in real time without any lag, by using Next.js and Liveblocks newest features.",
     href: "https://www.youtube.com/watch?v=y5vE8y_f_OM",
     texture: "/textures/project/project2.mp4",
-    logo: "/assets/project-logo2.png",
-    logoStyle: {
-      backgroundColor: "#13202F",
-      border: "0.2px solid #17293E",
-      boxShadow: "0px 0px 60px 0px #2F6DB54D",
-    },
-    spotlight: "/assets/spotlight2.png",
-    // model: <ModernHome4 />,
-    tags: [
-      {
-        id: 1,
-        name: "React.js",
-        path: "/assets/react.svg",
-      },
-      {
-        id: 2,
-        name: "TailwindCSS",
-        path: "assets/tailwindcss.png",
-      },
-      {
-        id: 3,
-        name: "TypeScript",
-        path: "/assets/typescript.png",
-      },
-      {
-        id: 4,
-        name: "Framer Motion",
-        path: "/assets/framer.png",
-      },
-    ],
+    logo: "assets/Gallery/LC2.jpg",
   },
   {
     title: "Road Rehabilitation for Revolution Plus Property",
@@ -147,38 +133,8 @@ export const myProjects = [
       "With a focus on efficiency, CarePulse integrantes complex forms and SMS notifications, by using Next.js, Appwrite, Twillio and Sentry that enhance operational workflows.",
     href: "https://www.youtube.com/watch?v=lEflo_sc82g",
     texture: "/textures/project/project3.mp4",
-    logo: "/assets/project-logo3.png",
-    logoStyle: {
-      backgroundColor: "#60f5a1",
-      background:
-        "linear-gradient(0deg, #60F5A150, #60F5A150), linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(208, 213, 221, 0.8) 100%)",
-      border: "0.2px solid rgba(208, 213, 221, 1)",
-      boxShadow: "0px 0px 60px 0px rgba(35, 131, 96, 0.3)",
-    },
-    spotlight: "/assets/spotlight3.png",
-    // model: <ModernHome4 />,
-    tags: [
-      {
-        id: 1,
-        name: "React.js",
-        path: "/assets/react.svg",
-      },
-      {
-        id: 2,
-        name: "TailwindCSS",
-        path: "assets/tailwindcss.png",
-      },
-      {
-        id: 3,
-        name: "TypeScript",
-        path: "/assets/typescript.png",
-      },
-      {
-        id: 4,
-        name: "Framer Motion",
-        path: "/assets/framer.png",
-      },
-    ],
+    logo: "assets/Gallery/LC3.jpg",
+ 
   },
   // {
   //   title: 'Horizon - Online Banking Platform',
