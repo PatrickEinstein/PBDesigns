@@ -32,9 +32,9 @@ const Carousel = () => {
                     key={img}
                     src={img}
                     alt={`Slide ${index + 1}`}
-                    initial={{ opacity: 0 }}
+                    initial={{ opacity: 0.5 }}
                     animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    exit={{ opacity: 0.5 }}
                     transition={{ duration: 2.0 }}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
