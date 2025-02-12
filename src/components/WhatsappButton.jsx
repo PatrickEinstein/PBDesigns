@@ -1,7 +1,7 @@
 export const WhatsAppButton = ({ name, email, textmessage }) => {
 
 
-  const phoneNumber = "2348138329684"; // Use international format without `+`
+  const phoneNumber = "2348034740048"; // Use international format without `+`
   const message = encodeURIComponent(
     `Hi PB Designs, my name is ${name}.\n${textmessage}\nMy email is: ${email}.`
   );

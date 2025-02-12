@@ -30,42 +30,42 @@ const Gallery = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [paginationParams, toast]);
+  }, []);
 
   // Fetch more gallery data on scroll
-  const fetchMoreGallery = useCallback(async () => {
-    if (loadingMore) return; // Prevent duplicate calls
-    setLoadingMore(true);
-    try {
-      const res = await galleryService.GetAllGallery(
-        (paginationParams + 1).toString()
-      );
-      if (res.status && res.data.length > 0) {
-        setGallery((prev) => [...prev, ...res.data]); // Append new data
-        setPaginationParams((prevPage) => prevPage + 1); // Increment page
-      }
-    } catch (err) {
-      toast("Failed to fetch more gallery data", "error");
-    } finally {
-      setLoadingMore(false);
-    }
-  }, [loadingMore, paginationParams, toast]);
+  // const fetchMoreGallery = useCallback(async () => {
+  //   if (loadingMore) return; // Prevent duplicate calls
+  //   setLoadingMore(true);
+  //   try {
+  //     const res = await galleryService.GetAllGallery(
+  //       (paginationParams + 1).toString()
+  //     );
+  //     if (res.status && res.data.length > 0) {
+  //       setGallery((prev) => [...prev, ...res.data]); // Append new data
+  //       setPaginationParams((prevPage) => prevPage + 1); // Increment page
+  //     }
+  //   } catch (err) {
+  //     toast("Failed to fetch more gallery data", "error");
+  //   } finally {
+  //     setLoadingMore(false);
+  //   }
+  // }, [loadingMore, paginationParams, toast]);
 
   // Infinite scroll listener
-  useEffect(() => {
-    const handleScroll = () => {
-      if (
-        window.innerHeight + document.documentElement.scrollTop >=
-          document.documentElement.offsetHeight - 50 &&
-        !loadingMore
-      ) {
-        fetchMoreGallery();
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (
+  //       window.innerHeight + document.documentElement.scrollTop >=
+  //         document.documentElement.offsetHeight - 50 &&
+  //       !loadingMore
+  //     ) {
+  //       fetchMoreGallery();
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [fetchMoreGallery, loadingMore]);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [fetchMoreGallery, loadingMore]);
 
   // Fetch initial gallery data on mount
   useEffect(() => {
