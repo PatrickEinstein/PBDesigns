@@ -49,7 +49,6 @@ const Gallery = () => {
   }, [paginationParams]);
 
   useEffect(() => {
-    console.log({ paginationParams });
     fetchGallery();
   }, [paginationParams]);
 
