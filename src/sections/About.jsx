@@ -25,12 +25,12 @@ const About = () => {
 
   return (
     <section className="c-space my-20" id="about">
-      <div className="grid  xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
-        <div className="col-span-1 xl:row-span-3">
+      <div className="grid  xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-5 h-full">
+        <div className="col-span-1 ">
           <div className="grid-container">
             <img
               src="/assets/pb-team.jpg"
-              alt="grid-1"
+              alt="grid-1"  
               className="w-full sm:h-[276px] h-fit object-contain"
             />
             <div>
@@ -123,7 +123,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-1 md:row-span-3">
+        <div className="col-span-1 ">
           <div className="grid-container">
             <div className="rounded-3xl w-full  flex justify-center items-center">
               <Globe

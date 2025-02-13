@@ -3,18 +3,20 @@ import { navLinks } from "../constants/index.js";
 import { Link } from "react-router";
 
 const NavItems = ({ onClick = () => {} }) => (
-    <ul className="nav-ul">
-        {navLinks.map((item) => (
-            <li key={item.id} className="nav-li">
-                <a href={item.href.toLowerCase()} className="nav-li_a" onClick={onClick}>
-                    {item.name}
-                </a>
-            </li>
-        ))}
-    </ul>
+  <ul className="nav-ul">
+    {navLinks.map((item) => (
+      <li key={item.id} className="nav-li">
+        <a
+          href={item.href.toLowerCase()}
+          className="nav-li_a"
+          onClick={onClick}
+        >
+          {item.name}
+        </a>
+      </li>
+    ))}
+  </ul>
 );
-
-
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,12 +28,17 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90">
       <div className="w-screen mx-auto">
         <div className="flex justify-between items-center py-5 mx-auto c-space">
-          <a
-            href="/"
-            className="text-neutral-400 font-bold text-xl hover:text-white transition-colors"
-          >
-            PB Designs
-          </a>
+          <div className="flex flex-row gap-5 items-center">
+            <img src="assets/Gallery/logo2.jpg" alt="logo" 
+              className="h-[50px] w-[50px] bg-white-500"
+            />
+            <a
+              href="/"
+              className="text-neutral-400 font-bold text-xl hover:text-white transition-colors"
+            >
+              PB Designs
+            </a>
+          </div>
 
           <button
             onClick={toggleMenu}

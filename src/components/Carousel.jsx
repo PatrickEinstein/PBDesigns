@@ -16,7 +16,9 @@ const Carousel = () => {
     );
   };
 
-
+  // setInterval(()=>{
+  //   handleNext()
+  // }, 10000)
 
   return (
     <div className="relative mx-auto h-full bg-white">
@@ -30,8 +32,9 @@ const Carousel = () => {
                     key={img}
                     src={img}
                     alt={`Slide ${index + 1}`}
-                    initial={{ opacity: 0.5 }}
-                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 0.8}}
+                    
                     exit={{ opacity: 0.5 }}
                     transition={{ duration: 2.0 }}
                     className="absolute inset-0 w-full h-full object-cover"
