@@ -23,7 +23,7 @@ const Contact = () => {
         <img
           src="/assets/terminal.png"
           alt="terminal-bg"
-          className="absolute inset-0 h-[800px]"
+          className="absolute inset-0 h-[820px] w-screen"
         />
         <div className="contact-container">
           <h3 className="head-text">Let's talk</h3>

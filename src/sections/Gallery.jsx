@@ -6,14 +6,30 @@ import { IoClose, IoArrowBack, IoArrowForward } from "react-icons/io5";
 
 const Gallery = () => {
   const galleryService = new GalleryFetches();
-  const [gallery, setGallery] = useState([]); 
-  const [isLoading, setIsLoading] = useState(false); 
-  const [loadingMore, setLoadingMore] = useState(false); 
-  const [isModalOpen, setIsModalOpen] = useState(false); 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0); 
+  const [gallery, setGallery] = useState({
+    data: [],
+    totalPages: 0,
+    currentPage: 0,
+    totalItems: 0,
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [paginationParams, setPaginationParams] = useState(1);
   const toast = useToast();
 
+  const onHandleNext = () => {
+    setPaginationParams((prev) => {
+     return prev + 1;
+    });
+  };
+
+  const onHandlePrevious = () => {
+    setPaginationParams((prev) => {
+     return  prev > 1 ? prev - 1 : null;
+    });
+  };
   // Fetch initial gallery data
   const fetchGallery = useCallback(async () => {
     setIsLoading(true);
@@ -22,7 +38,7 @@ const Gallery = () => {
         paginationParams.toString()
       );
       if (res.status) {
-        setGallery(res.data);
+        setGallery(res);
         toast(res.message, "info");
       }
     } catch (err) {
@@ -30,47 +46,12 @@ const Gallery = () => {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [paginationParams]);
 
-  // Fetch more gallery data on scroll
-  // const fetchMoreGallery = useCallback(async () => {
-  //   if (loadingMore) return; // Prevent duplicate calls
-  //   setLoadingMore(true);
-  //   try {
-  //     const res = await galleryService.GetAllGallery(
-  //       (paginationParams + 1).toString()
-  //     );
-  //     if (res.status && res.data.length > 0) {
-  //       setGallery((prev) => [...prev, ...res.data]); // Append new data
-  //       setPaginationParams((prevPage) => prevPage + 1); // Increment page
-  //     }
-  //   } catch (err) {
-  //     toast("Failed to fetch more gallery data", "error");
-  //   } finally {
-  //     setLoadingMore(false);
-  //   }
-  // }, [loadingMore, paginationParams, toast]);
-
-  // Infinite scroll listener
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (
-  //       window.innerHeight + document.documentElement.scrollTop >=
-  //         document.documentElement.offsetHeight - 50 &&
-  //       !loadingMore
-  //     ) {
-  //       fetchMoreGallery();
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, [fetchMoreGallery, loadingMore]);
-
-  // Fetch initial gallery data on mount
   useEffect(() => {
+    console.log({ paginationParams });
     fetchGallery();
-  }, [fetchGallery]);
+  }, [paginationParams]);
 
   // Modal handlers
   const openModal = (index) => {
@@ -99,8 +80,8 @@ const Gallery = () => {
       </h1>
       <Loader isLoading={isLoading} />
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
-        {gallery.length > 0 ? (
-          gallery.map(({ _id, picture }, index) => (
+        {gallery.data.length > 0 ? (
+          gallery.data.map(({ _id, picture }, index) => (
             <div
               key={_id}
               className="bg-white p-1 max-h-[400px] shadow-md rounded-lg gap-2 cursor-pointer"
@@ -114,8 +95,24 @@ const Gallery = () => {
             </div>
           ))
         ) : (
-          <p className="text-center text-gray-500">No galleries available.</p>
+          <p className="text-center text-gray-500">Loading...</p>
         )}
+        <div className="flex flex-row justify-between w-[90vw]">
+          <button
+            disabled={paginationParams == 1}
+            onClick={onHandlePrevious}
+            className="mt-6 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md"
+          >
+            Previous
+          </button>
+          <button
+            disabled={paginationParams == gallery.totalPages}
+            onClick={onHandleNext}
+            className="mt-6 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md"
+          >
+            More
+          </button>
+        </div>
       </div>
       {loadingMore && (
         <div className="text-center mt-4">
@@ -132,7 +129,7 @@ const Gallery = () => {
               <IoClose className="font-extrabold text-5xl" />
             </button>
             <img
-              src={gallery[currentImageIndex].picture}
+              src={gallery.data[currentImageIndex].picture}
               alt="Modal Content"
               className="min-h-[80vh] w-full object-contain"
             />
