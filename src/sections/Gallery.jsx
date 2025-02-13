@@ -96,6 +96,7 @@ const Gallery = () => {
         ) : (
           <p className="text-center text-gray-500">Loading...</p>
         )}
+      </div>
         <div className="flex flex-row justify-between w-[90vw]">
           <button
             disabled={paginationParams == 1}
@@ -112,7 +113,6 @@ const Gallery = () => {
             More
           </button>
         </div>
-      </div>
       {loadingMore && (
         <div className="text-center mt-4">
           <p>Loading more...</p>
