@@ -63,12 +63,12 @@ const Gallery = () => {
   };
 
   const showNextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % gallery.length);
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % gallery.data.length);
   };
 
   const showPreviousImage = () => {
     setCurrentImageIndex(
-      (prevIndex) => (prevIndex - 1 + gallery.length) % gallery.length
+      (prevIndex) => (prevIndex - 1 + gallery.data.length) % gallery.data.length
     );
   };
 
