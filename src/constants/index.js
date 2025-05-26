@@ -28,6 +28,9 @@ export const navLinks = [
 
 export const carouselsImages = [
   {
+    img: "assets/Gallery/gal33.jpg",
+  },
+  {
     img: "assets/Gallery/gal1.jpg",
   },
   {
@@ -115,7 +118,6 @@ export const myProjects = [
     href: "https://www.youtube.com/watch?v=zfAb95tJvZQ",
     texture: "/textures/project/project1.mp4",
     logo: "assets/Gallery/LC1.jpg",
-
   },
   {
     title: "3-Bedroom Terrace Building",
@@ -134,7 +136,6 @@ export const myProjects = [
     href: "https://www.youtube.com/watch?v=lEflo_sc82g",
     texture: "/textures/project/project3.mp4",
     logo: "assets/Gallery/LC3.jpg",
- 
   },
   // {
   //   title: 'Horizon - Online Banking Platform',

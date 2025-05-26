@@ -25,15 +25,17 @@ const About = () => {
 
   return (
     <section className="c-space my-20" id="about">
-      <div className="grid  xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-5 h-full">
-        <div className="col-span-1 ">
-          <div className="grid-container">
-            <img
-              src="/assets/pb-team.jpg"
-              alt="grid-1"  
-              className="w-full sm:h-[276px] h-fit object-contain"
-            />
-            <div>
+      <div className="flex flex-col justify-between gap-20">
+        {/* MISSION AND VISISON */}
+        <div className="flex flex-col md:flex-row justify-between gap-8">
+          <img
+            src="/assets/pb-team.jpg"
+            alt="grid-1"
+            className=" w-full md:w-1/3 h-fit object-contain"
+          />
+
+          <div>
+            <div className="mb-4">
               <p className="grid-headtext">Our Story</p>
               <p className="grid-subtext">
                 Established over two decades ago, PB Designs Limited has evolved
@@ -43,7 +45,7 @@ const About = () => {
                 for clients seeking reliable engineering solutions.
               </p>
             </div>
-            <div>
+            <div className="mb-4">
               <p className="grid-headtext">Our Mission</p>
               <p className="grid-subtext">
                 To provide innovative and sustainable engineering services that
@@ -51,14 +53,14 @@ const About = () => {
                 advancement of the industries we serve.
               </p>
             </div>
-            <div>
+            <div className="mb-4">
               <p className="grid-headtext">Our Vision</p>
               <p className="grid-subtext">
                 To be a global leader in engineering services, recognized for
                 our expertise, quality, and commitment to client success.
               </p>
             </div>
-            <div>
+            <div className="mb-4">
               <p className="grid-headtext">Our Team</p>
               <p className="grid-subtext">
                 Our team comprises seasoned professionals with diverse expertise
@@ -67,97 +69,71 @@ const About = () => {
                 the satisfaction of our clients.
               </p>
             </div>
-            <div>
-              <p className="grid-headtext">Our Values</p>
-
-              <ul className=" flex flex-col gap-5 list-none text-white-800 leading-loose">
-                <li>
-                  <span className="font-bold">Integrity:</span> We conduct our
-                  business with the highest ethical standards, fostering trust
-                  and transparency in all our engagements.
-                </li>
-                <li>
-                  <span className="font-bold">Excellence:</span> We strive for
-                  superior quality in every project we undertake, ensuring
-                  outcomes that not only meet but exceed expectations.
-                </li>
-                <li>
-                  <span className="font-bold">Innovation:</span> We embrace new
-                  technologies and methodologies to deliver cutting-edge
-                  solutions that drive progress and efficiency.
-                </li>
-                <li>
-                  <span className="font-bold">Collaboration: </span>We believe
-                  in building strong relationships with our clients, partners,
-                  and communities, working together to achieve shared goals.
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
-        <div className="cols-span-1 xl:row-span">
-          <div className="grid-container">
-            <div className="w-full h-[500px]">
-              <div className=" bg-black-200 rounded-lg h-96 m:h-full">
-                <img
-                  src="/assets/Gallery/PB1.jpg"
-                  alt="/assets/Gallery/PB1.jpg"
-                  className="h-full w-full object-cover"
-                />
-              </div>
 
-            </div>
-            <div>
-              <p className="grid-headtext">Services</p>
+        {/* SERVICES */}
 
-              <ul className="flex flex-col gap-5 list-none text-white-800 leading-loose">
-                {Services.map((item, index) => (
-                  <li key={index}>
-                    <div>
-                      <p className="grid-headtext">{item.headtext}</p>
-                      <p className="grid-subtext">{item.subtext}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <div className="flex flex-col md:flex-row justify-between gap-8 pl-10 pr-10">
+          <img
+            src="/assets/Gallery/PB1.jpg"
+            alt="/assets/Gallery/PB1.jpg"
+            className=" w-full md:w-1/3 h-fit object-contain"
+          />
+
+          <div>
+            <p className="grid-headtext">Services</p>
+
+            <ul className="flex flex-col gap-5 list-none text-white-800 leading-loose">
+              {Services.map((item, index) => (
+                <li key={index}>
+                  <div>
+                    <p className="grid-headtext">{item.headtext}</p>
+                    <p className="grid-subtext">{item.subtext}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <div className="col-span-1 ">
-          <div className="grid-container">
-            <div className="rounded-3xl w-full  flex justify-center items-center">
-              <Globe
-                height={326}
-                width={326}
-                backgroundColor="rgba(0,0,0,0)"
-                backgroundImageOpacity={0.5}
-                showAtmosphere
-                showGraticules
-                globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-                bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                labelsData={[
-                  {
-                    lat: 6.5244,
-                    lng: 3.3792,
-                    text: "I'm here",
-                    color: "white",
-                    size: 100,
-                  },
-                ]}
-              />
-            </div>
-            <div className="justify-between gap-5">
-              <p className="grid-headtext">Locate Us</p>
-              <p className="grid-subtext">
-                Suite 21, Block A, Alausa Shopping Mall, Alausa Ikeja, Lagos,
-                Nigeria
-              </p>
-              <p className="grid-subtext">+234 803 474 0048</p>
-              <p className="grid-subtext">info@pbdesignsltd.com</p>
-              <p className="grid-subtext">Monday - Friday, 8:00 AM - 5:00 PM</p>
-            </div>
+
+        {/* GLOBE */}
+        <div className="flex flex-col md:flex-row gap-8 mt-8 mb-8 items-center">
+          <div className=" w-full md:w-1/3 h-fit object-contain">
+            <Globe
+              height={326}
+              width={326}
+              backgroundColor="rgba(0,0,0,0)"
+              backgroundImageOpacity={0.5}
+              showAtmosphere
+              showGraticules
+              globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+              bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
+              labelsData={[
+                {
+                  lat: 6.5244,
+                  lng: 3.3792,
+                  text: "I'm here",
+                  color: "white",
+                  size: 100,
+                },
+              ]}
+            />
+          </div>
+          <div className="justify-between gap-5">
+            <p className="grid-headtext">Locate Us</p>
+            <p className="grid-subtext">
+              Suite 21, Block A, Alausa Shopping Mall, Alausa Ikeja, Lagos,
+              Nigeria
+            </p>
+            <p className="grid-subtext">+234 803 474 0048</p>
+            <p className="grid-subtext">info@pbdesignsltd.com</p>
+            <p className="grid-subtext">Monday - Friday, 8:00 AM - 5:00 PM</p>
           </div>
         </div>
+      </div>
+
+      <div className="grid  xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-5 h-full">
         <div className="md:col-span-2 md:row-span-1">
           <div className="grid-container">
             <img

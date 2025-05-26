@@ -7,10 +7,10 @@ const Hero = () => {
  
   return (
     <section
-      className="min-h-screen w-full flex flex-col relative "
+      className="min-h-screen w-full pt-5 flex flex-col relative "
       id="home"
     >
-      <div className="w-full mx-auto flex flex-col mt-20 md:mt-20 c-space gap-3">
+      <div className="w-full mx-auto flex flex-col mt-20">
         <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">
           Welcome to PB Designs Limited <span className="waving-hand">👋</span>
         </p>
@@ -18,7 +18,7 @@ const Hero = () => {
           Engineering Excellence Redefined
         </p>
       </div>
-      <div className="w-full my-auto h-[80vh]">
+      <div className="w-full my-auto h-[100vh]">
       <Carousel/>
       </div>
       <div className="absolute bottom-7 left-0 mt-10 right-0 w-full z-10 c-space">

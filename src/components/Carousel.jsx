@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { carouselsImages } from "../constants";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+   const intervalRef = useRef(null);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselsImages.length);
@@ -16,9 +17,15 @@ const Carousel = () => {
     );
   };
 
-  // setInterval(()=>{
-  //   handleNext()
-  // }, 10000)
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      handleNext();
+    }, 5000);
+
+    return () => {
+      clearInterval(intervalRef.current);
+    };
+  }, []);
 
   return (
     <div className="relative mx-auto h-full bg-white">
@@ -33,10 +40,9 @@ const Carousel = () => {
                     src={img}
                     alt={`Slide ${index + 1}`}
                     initial={{ opacity: 1 }}
-                    animate={{ opacity: 0.8}}
-                    
+                    animate={{ opacity: 0.8 }}
                     exit={{ opacity: 0.5 }}
-                    transition={{ duration: 2.0 }}
+                    transition={{ duration: 0.5 }}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 )
