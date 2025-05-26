@@ -41,8 +41,8 @@ const Carousel = () => {
                     alt={`Slide ${index + 1}`}
                     initial={{ opacity: 1 }}
                     animate={{ opacity: 0.8 }}
-                    exit={{ opacity: 0.5 }}
-                    transition={{ duration: 0.5 }}
+                    // exit={{ opacity: 0.5 }}
+                    // transition={{ duration: 0.5 }}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 )
