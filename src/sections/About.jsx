@@ -74,7 +74,7 @@ const About = () => {
 
         {/* SERVICES */}
 
-        <div className="flex flex-col md:flex-row justify-between gap-8 pl-10 pr-10">
+        <div className="flex flex-col md:flex-row justify-between gap-8">
           <img
             src="/assets/Gallery/PB1.jpg"
             alt="/assets/Gallery/PB1.jpg"
