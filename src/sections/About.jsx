@@ -113,13 +113,13 @@ const About = () => {
         <div className="flex flex-col md:flex-row gap-8 mt-8 mb-8 items-center">
           <div className="justify-between gap-5">
             <p className="grid-headtext">Locate Us</p>
-            <p className="grid-subtext">
+            <p className="text-white">
               Suite 21, Block A, Alausa Shopping Mall, Alausa Ikeja, Lagos,
               Nigeria
             </p>
-            <p className="grid-subtext">+234 803 474 0048</p>
-            <p className="grid-subtext">info@pbdesignsltd.com</p>
-            <p className="grid-subtext">Monday - Friday, 8:00 AM - 5:00 PM</p>
+            <p className="text-white">+234 803 474 0048</p>
+            <p className="text-white">info@pbdesignsltd.com</p>
+            <p className="text-white">Monday - Friday, 8:00 AM - 5:00 PM</p>
           </div>
         </div>
       </div>

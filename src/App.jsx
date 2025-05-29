@@ -48,7 +48,7 @@ const App = () => {
         <Route
           path="/"
           element={
-            <main className="w-full overflow-x-hidden bg-gradient-to-b from-blue-800 via-blue-300 to-blue-100 ">
+            <main className="w-full overflow-x-hidden bg-gradient-to-b from-blue-200 via-blue-300 to-blue-500 ">
               <Hero />
               <About />
               <Project />
