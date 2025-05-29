@@ -10,8 +10,8 @@ const Hero = () => {
       id="home"
     >
       <div className="w-full my-auto h-[100vh] relative">
-        <div className="absolute top-1/4 md:top-1/3 md:left-1/3 flex flex-col z-10 ">
-          <p className="text-5xl md:text-4xl font-semibold text-center font-generalsans text-black">
+        <div className="px-2 absolute top-1/4 md:top-1/3 md:left-1/3 flex flex-col z-10 ">
+          <p className="text-2xl md:text-4xl font-semibold text-center font-generalsans text-black">
             Welcome to PB Designs Limited{" "}
             <span className="animate-wave">👋</span>
           </p>
