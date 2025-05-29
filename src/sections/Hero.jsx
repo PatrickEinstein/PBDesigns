@@ -4,22 +4,22 @@ import Button from "../components/Button.jsx";
 import Carousel from "../components/Carousel.jsx";
 
 const Hero = () => {
- 
   return (
     <section
       className="min-h-screen w-full pt-5 flex flex-col relative "
       id="home"
     >
-      <div className="w-full mx-auto flex flex-col mt-20">
-        <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">
-          Welcome to PB Designs Limited <span className="waving-hand">👋</span>
-        </p>
-        <p className="text-xl md:text-xl font-light text-white text-center font-generalsans">
-          Engineering Excellence Redefined
-        </p>
-      </div>
-      <div className="w-full my-auto h-[100vh]">
-      <Carousel/>
+      <div className="w-full my-auto h-[100vh] relative">
+        <div className="absolute top-1/4 md:top-1/3 md:left-1/3 flex flex-col z-10 ">
+          <p className="text-5xl md:text-4xl font-semibold text-center font-generalsans text-black">
+            Welcome to PB Designs Limited{" "}
+            <span className="animate-wave">👋</span>
+          </p>
+          <p className="mt-2 text-2xl md:text-xl font-light text-center font-generalsans text-black">
+            Engineering Excellence Redefined
+          </p>
+        </div>
+        <Carousel />
       </div>
       <div className="absolute bottom-7 left-0 mt-10 right-0 w-full z-10 c-space">
         <a href="#about" className="w-fit">
@@ -36,7 +36,8 @@ const Hero = () => {
 
 export default Hero;
 
-{/* <Canvas>
+{
+  /* <Canvas>
 <ambientLight intensity={Math.PI} />
 <directionalLight position={[0, 10, 5]} />
 <Center>
@@ -47,4 +48,5 @@ export default Hero;
   </Suspense>
 </Center>
 <OrbitControls maxPolarAngle={Math.PI} enableZoom={true} />
-</Canvas> */}
+</Canvas> */
+}

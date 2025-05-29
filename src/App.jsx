@@ -9,8 +9,17 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router";
 import Gallery from "./sections/Gallery.jsx";
 import AdminGallery from "./sections/AdminGallery.jsx";
 import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const App = () => {
+  useEffect(() => {
+    AOS.init({
+       duration: 1000
+    });
+    AOS.refresh();
+    
+  }, []);
   const ScrollToSection = () => {
     const location = useLocation();
     useEffect(() => {
@@ -39,7 +48,7 @@ const App = () => {
         <Route
           path="/"
           element={
-            <main className="w-full overflow-x-hidden">
+            <main className="w-full overflow-x-hidden bg-gradient-to-b from-blue-800 via-blue-300 to-blue-100 ">
               <Hero />
               <About />
               <Project />

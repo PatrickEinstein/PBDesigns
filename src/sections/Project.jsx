@@ -25,13 +25,13 @@ const Project = () => {
   return (
     <section className="c-space my-20 " id="work">
       <p className="head-text">Our Projects</p>
-      <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full">
+      <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full bg-blue-800">
         <div className="flex flex-col gap-5 relative sm:p-10 py-10 px-5 shadow-2xl shadow-black-200">
           <div className="flex flex-col gap-5 text-white-600 my-5 ">
             <p className="text-white text-2xl font-semibold animatedText">
               {currentProject.title}
             </p>
-            <p className="animatedText">{currentProject.desc}</p>
+            <p className="animatedText text-white-800">{currentProject.desc}</p>
           </div>
 
           <div className="flex justify-between items-center mt-7">

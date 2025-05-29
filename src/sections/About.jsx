@@ -34,40 +34,48 @@ const About = () => {
             className=" w-full md:w-1/3 h-fit object-contain"
           />
 
-          <div>
-            <div className="mb-4">
-              <p className="grid-headtext">Our Story</p>
-              <p className="grid-subtext">
-                Established over two decades ago, PB Designs Limited has evolved
-                into a reputable engineering firm known for delivering
-                high-quality services across various sectors. Our commitment to
-                excellence and innovation has positioned us as a trusted partner
-                for clients seeking reliable engineering solutions.
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-4 md:justify-between md:gap-8 text-left">
+            <div data-aos="fade-right">
+              <div className="mb-4 bg-black-300 bg-opacity-50 p-5 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out data-aos=fade-right">
+                <p className="grid-headtext">Our Story</p>
+                <p className="grid-subtext">
+                  Established over two decades ago, PB Designs Limited has
+                  evolved into a reputable engineering firm known for delivering
+                  high-quality services across various sectors. Our commitment
+                  to excellence and innovation has positioned us as a trusted
+                  partner for clients seeking reliable engineering solutions.
+                </p>
+              </div>
             </div>
-            <div className="mb-4">
-              <p className="grid-headtext">Our Mission</p>
-              <p className="grid-subtext">
-                To provide innovative and sustainable engineering services that
-                exceed client expectations, contributing to the development and
-                advancement of the industries we serve.
-              </p>
+            <div data-aos="fade-right">
+              <div className="mb-4 bg-black-300 bg-opacity-50 p-5 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
+                <p className="grid-headtext">Our Mission</p>
+                <p className="grid-subtext">
+                  To provide innovative and sustainable engineering services
+                  that exceed client expectations, contributing to the
+                  development and advancement of the industries we serve.
+                </p>
+              </div>
             </div>
-            <div className="mb-4">
-              <p className="grid-headtext">Our Vision</p>
-              <p className="grid-subtext">
-                To be a global leader in engineering services, recognized for
-                our expertise, quality, and commitment to client success.
-              </p>
+            <div data-aos="fade-right">
+              <div className="mb-4 bg-black-300 bg-opacity-50 p-5 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
+                <p className="grid-headtext">Our Vision</p>
+                <p className="grid-subtext">
+                  To be a global leader in engineering services, recognized for
+                  our expertise, quality, and commitment to client success.
+                </p>
+              </div>
             </div>
-            <div className="mb-4">
-              <p className="grid-headtext">Our Team</p>
-              <p className="grid-subtext">
-                Our team comprises seasoned professionals with diverse expertise
-                in engineering, project management, and technical services.
-                Their dedication and skill drive the success of our projects and
-                the satisfaction of our clients.
-              </p>
+            <div data-aos="fade-right">
+              <div className="mb-4 bg-black-300 bg-opacity-50 p-5 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
+                <p className="grid-headtext">Our Team</p>
+                <p className="grid-subtext">
+                  Our team comprises seasoned professionals with diverse
+                  expertise in engineering, project management, and technical
+                  services. Their dedication and skill drive the success of our
+                  projects and the satisfaction of our clients.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -81,17 +89,21 @@ const About = () => {
             className=" w-full md:w-1/3 h-fit object-contain"
           />
 
-          <div>
-            <p className="grid-headtext">Services</p>
+          <div className="">
+            <h2 className="text-2xl font-semibold text-white mb-6">Services</h2>
 
-            <ul className="flex flex-col gap-5 list-none text-white-800 leading-loose">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white">
               {Services.map((item, index) => (
-                <li key={index}>
-                  <div>
-                    <p className="grid-headtext">{item.headtext}</p>
-                    <p className="grid-subtext">{item.subtext}</p>
-                  </div>
-                </li>
+                <div data-aos="fade-right">
+                  <li key={index} className="h-full">
+                    <div className="bg-black-300 bg-opacity-50 h-full flex flex-col rounded-xl shadow-md p-6 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
+                      <h3 className="text-xl font-bold mb-2">
+                        {item.headtext}
+                      </h3>
+                      <p className="text-sm text-gray-300">{item.subtext}</p>
+                    </div>
+                  </li>
+                </div>
               ))}
             </ul>
           </div>
@@ -99,27 +111,6 @@ const About = () => {
 
         {/* GLOBE */}
         <div className="flex flex-col md:flex-row gap-8 mt-8 mb-8 items-center">
-          <div className=" w-full md:w-1/3 h-fit object-contain">
-            <Globe
-              height={326}
-              width={326}
-              backgroundColor="rgba(0,0,0,0)"
-              backgroundImageOpacity={0.5}
-              showAtmosphere
-              showGraticules
-              globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-              bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-              labelsData={[
-                {
-                  lat: 6.5244,
-                  lng: 3.3792,
-                  text: "I'm here",
-                  color: "white",
-                  size: 100,
-                },
-              ]}
-            />
-          </div>
           <div className="justify-between gap-5">
             <p className="grid-headtext">Locate Us</p>
             <p className="grid-subtext">

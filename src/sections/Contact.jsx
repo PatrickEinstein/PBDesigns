@@ -18,13 +18,13 @@ const Contact = () => {
 
   return (
     <section className="c-space my-20" id="contact">
-      <h3 className="head-text">Contact Us</h3>
-      <div className="relative min-h-screen flex items-center justify-center flex-col">
-        <img
+      <h3 className="font-bold text-black-600 text-5xl">Contact Us</h3>
+      <div className="relative min-h-screen flex items-center justify-center flex-col bg-blue-800">
+        {/* <img
           src="/assets/terminal.png"
           alt="terminal-bg"
           className="absolute inset-0 h-[820px] w-screen"
-        />
+        /> */}
         <div className="contact-container">
           <h3 className="head-text">Let's talk</h3>
           <p className="text-lg text-white-600 mt-3">
