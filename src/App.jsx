@@ -11,14 +11,17 @@ import AdminGallery from "./sections/AdminGallery.jsx";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import BlogPage from "./sections/Blogs.jsx";
+import BlogUploadPage from "./sections/AdminBlogs.jsx";
+
+const locs = ["/gallery", "/blogs"];
 
 const App = () => {
   useEffect(() => {
     AOS.init({
-       duration: 1000
+      duration: 1000,
     });
     AOS.refresh();
-    
   }, []);
   const ScrollToSection = () => {
     const location = useLocation();
@@ -33,7 +36,7 @@ const App = () => {
             section.scrollIntoView({ behavior: "smooth" });
           }
         }
-      } else if (location.pathname == "/gallery" && location.hash !== "") {
+      } else if (locs.includes(location.pathname) && location.hash !== "") {
         window.location = `/${location.hash}`;
       }
     }, [location]);
@@ -48,7 +51,8 @@ const App = () => {
         <Route
           path="/"
           element={
-            <main className="w-full overflow-x-hidden bg-gradient-to-b from-blue-200 via-blue-300 to-blue-500 ">
+            // <main className="w-full overflow-x-hidden bg-gradient-to-b from-blue-200 via-blue-300 to-blue-500 ">
+            <main className="w-full overflow-x-hidden bg-[#03045E]">
               <Hero />
               <About />
               <Project />
@@ -61,6 +65,8 @@ const App = () => {
         />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/adminGallery" element={<AdminGallery />} />
+        <Route path="/blogs" element={<BlogPage />} />
+        <Route path="/adminBlog" element={<BlogUploadPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,9 +1,9 @@
 import HttpGetCallerWhole, { HttpOTHERcaller, HttpOTHERcallerForm } from "..";
 
 export class BlogsFetches {
-  CreateGalleryApi = async (payload: any) => {
+  CreateBlogV2 = async (payload: any) => {
     const res = await HttpOTHERcaller(
-      `api/blog`,
+      `blogV2`,
       {
         "Content-Type": "application/json",
       },
@@ -13,27 +13,39 @@ export class BlogsFetches {
     return res;
   };
 
-  GetAllGallery = async ({ page, pageSize }: Props) => {
-    const res = await HttpGetCallerWhole(`api/blog/${page}/${pageSize}`, {
+  CreateBl = async (payload: any) => {
+    const res = await HttpOTHERcaller(
+      `blog`,
+      {
+        "Content-Type": "application/json",
+      },
+      "POST",
+      payload
+    );
+    return res;
+  };
+
+  GetAllBlogs = async ({ page, pageSize }) => {
+    const res = await HttpGetCallerWhole(`blog/${page}/${pageSize}`, {
       "Content-Type": "application/json",
     });
     return res;
   };
 
-  UpdateGallery = async (_id: string) => {
+  UpdatBlogs = async (payload:any) => {
     const res = await HttpOTHERcaller(
-      `delete/blog/update/${_id}`,
+      `blog/update`,
       {
         "Content-Type": "application/json",
       },
-      "UPDATE",
-      {}
+      "PATCH",
+      payload
     );
     return res;
   };
-  DeleteGallery = async (_id: string) => {
+  DeleteBlogs = async (_id: string) => {
     const res = await HttpOTHERcaller(
-      `delete/blog/delete/${_id}`,
+      `blog/delete/${_id}`,
       {
         "Content-Type": "application/json",
       },

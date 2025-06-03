@@ -33,13 +33,13 @@ const Footer = () => {
   return (
     <section className="c-space pt-7 pb-3 border-t border-black-300 flex justify-between items-center flex-wrap flex-col gap-5">
       <div className="text-white-500 flex flex-wrap gap-2">
-        <p>Terms and Conditions</p>
+        <a href="#">Terms and Conditions</a>
+        <a href="#">|</a>
+        <a href="#">Privacy Policy</a>
         <p>|</p>
-        <p>Privacy Policy</p>
-        <p>|</p>
-        <p>Media</p>
-        <p>|</p>
-        <p>Blogs</p>
+        <a href="/gallery">Media</a>
+        <a>|</a>
+        <a href="/blogs">Blogs</a>
       </div>
       <div className="flex gap-3">
         {SocialLinks.map(({ name, link, logo }, index) => (

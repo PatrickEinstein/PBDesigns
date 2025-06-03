@@ -18,7 +18,7 @@ const Contact = () => {
 
   return (
     <section className="c-space my-20" id="contact">
-      <h3 className="font-bold text-black-600 text-5xl">Contact Us</h3>
+      <h3 className="font-bold text-white-700 text-5xl">Contact Us</h3>
       <div className="relative min-h-screen flex items-center justify-center flex-col bg-blue-800">
         {/* <img
           src="/assets/terminal.png"

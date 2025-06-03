@@ -24,6 +24,11 @@ export const navLinks = [
     name: "Gallery",
     href: "/gallery",
   },
+   {
+    id: 6,
+    name: "Blogs",
+    href: "/blogs",
+  },
 ];
 
 export const carouselsImages = [

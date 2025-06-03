@@ -36,7 +36,7 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-4 md:justify-between md:gap-8 text-left">
             <div data-aos="fade-right">
-              <div className="mb-4 bg-black-300 bg-opacity-50 p-5 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out data-aos=fade-right">
+              <div className="mb-4 bg-[#0077B6] bg-opacity-50 p-5 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out data-aos=fade-right">
                 <p className="grid-headtext">Our Story</p>
                 <p className="grid-subtext">
                   Established over two decades ago, PB Designs Limited has
@@ -48,7 +48,7 @@ const About = () => {
               </div>
             </div>
             <div data-aos="fade-right">
-              <div className="mb-4 bg-black-300 bg-opacity-50 p-5 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
+              <div className="mb-4 bg-[#0077B6] bg-opacity-50 p-5 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
                 <p className="grid-headtext">Our Mission</p>
                 <p className="grid-subtext">
                   To provide innovative and sustainable engineering services
@@ -58,7 +58,7 @@ const About = () => {
               </div>
             </div>
             <div data-aos="fade-right">
-              <div className="mb-4 bg-black-300 bg-opacity-50 p-5 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
+              <div className="mb-4 bg-[#0077B6] bg-opacity-50 p-5 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
                 <p className="grid-headtext">Our Vision</p>
                 <p className="grid-subtext">
                   To be a global leader in engineering services, recognized for
@@ -67,7 +67,7 @@ const About = () => {
               </div>
             </div>
             <div data-aos="fade-right">
-              <div className="mb-4 bg-black-300 bg-opacity-50 p-5 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
+              <div className="mb-4 bg-[#0077B6] bg-opacity-50 p-5 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
                 <p className="grid-headtext">Our Team</p>
                 <p className="grid-subtext">
                   Our team comprises seasoned professionals with diverse
@@ -82,19 +82,20 @@ const About = () => {
 
         {/* SERVICES */}
 
-        <div className="flex flex-col md:flex-row justify-between gap-8">
-          <img
-            src="/assets/Gallery/PB1.jpg"
-            alt="/assets/Gallery/PB1.jpg"
-            className=" w-full md:w-1/3 h-fit object-contain"
-          />
+        <div className="flex flex-col  gap-5 md:flex-row w-full">
+          <div className="flex flex-col gap-6 w-full md:w-1/3">
+            <img
+              src="/assets/Gallery/PB1.jpg"
+              alt="/assets/Gallery/PB1.jpg"
+              className="w-full h-auto rounded-xl shadow-lg object-cover"
+            />
+          </div>
 
-          <div className="">
+          <div className="w-full">
             <h2 className="text-2xl font-semibold text-white mb-6">Services</h2>
-
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white">
+            <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 text-white">
               {Services.map((item, index) => (
-                <div data-aos="fade-right">
+                <div data-aos="fade-up">
                   <li key={index} className="h-full">
                     <div className="bg-black-300 bg-opacity-50 h-full flex flex-col rounded-xl shadow-md p-6 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
                       <h3 className="text-xl font-bold mb-2">
@@ -109,7 +110,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* GLOBE */}
         <div className="flex flex-col md:flex-row gap-8 mt-8 mb-8 items-center">
           <div className="justify-between gap-5">
             <p className="grid-headtext">Locate Us</p>
@@ -126,7 +126,7 @@ const About = () => {
 
       <div className="grid  xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-5 h-full">
         <div className="md:col-span-2 md:row-span-1">
-          <div className="grid-container">
+          <div className="bg-[#03045E] bg-opacity-50  md:px-10">
             <img
               src="/assets/grid3.png"
               alt="grid-3"

@@ -73,7 +73,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 bg-[#03045E]">
       <h1 className="text-center text-white-700 text-3xl font-semibold mt-20 mb-8">
         Let The Gallery Speak
       </h1>
