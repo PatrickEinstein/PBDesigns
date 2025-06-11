@@ -19,7 +19,7 @@ const Hero = () => {
       id="home"
     >
       {/* Main content container */}
-      <div className="w-full h-[100vh] relative my-auto">
+      <div className="w-full  h-[100vh] relative my-auto">
         {/* Background video */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <video
