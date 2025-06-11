@@ -221,7 +221,7 @@ export default function BlogUploadPage() {
           Live Preview
         </h2>
         <div className="space-y-6 overflow-y-auto max-h-[80vh] pr-2">
-          {allBlogs.map(
+          {allBlogs.length > 1 && allBlogs.map(
             ({ contentHtml, contentDelta, excerpt, _id }, index) => (
               <div
                 key={index}
