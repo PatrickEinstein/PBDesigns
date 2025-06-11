@@ -82,32 +82,32 @@ export const carouselsImages = [
 export const clientReviews = [
   {
     id: 1,
-    name: "Emily Johnson",
-    position: "Operations Manager at GreenLeaf Construction",
+    name: "Adeniyi",
+    position: "CEO NYX Technologies",
     img: "assets/review1.png",
     review:
       "Working with PB Designs on our office building project was a fantastic experience. They transformed our vision into a functional, sustainable design. Their attention to detail and commitment to quality are unmatched. Highly recommended!",
   },
   {
     id: 2,
-    name: "Mark Rogers",
-    position: "Founder of BuildSmart Innovations",
+    name: "Mayowa",
+    position: "Mayfem Estate Developer",
     img: "assets/review2.png",
     review:
       "PB Designs’ expertise in construction management is truly impressive. They delivered a robust and scalable solution for our multi-site development project, and the results have been exceptional. They’re true professionals! Fantastic work.",
   },
   {
     id: 3,
-    name: "John Dohsas",
-    position: "Project Manager at UrbanTech Builders",
+    name: "Maria M.O",
+    position: "Davel Estate",
     img: "assets/review3.png",
     review:
       "I can’t say enough good things about PB Designs. They took our complex project requirements and delivered an innovative structural design on time and within budget. Their problem-solving abilities and engineering expertise are outstanding.",
   },
   {
     id: 4,
-    name: "Ether Smith",
-    position: "CEO of BrightStar Enterprises",
+    name: "Egaga",
+    position: "CEO, Kabod Global Resources",
     img: "assets/review4.png",
     review:
       "PB Designs was a pleasure to work with. They understood our construction requirements perfectly and delivered results that exceeded our expectations. Their skills in both project planning and execution are top-notch.",

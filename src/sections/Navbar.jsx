@@ -36,7 +36,7 @@ const Navbar = () => {
               href="/"
               className="text-neutral-400 font-bold text-xl hover:text-white transition-colors"
             >
-              PB Designs
+              PB Designs Limited
             </a>
           </div>
 

@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { BlogsFetches } from "../components/Utils/HttpUtils/fetches/BlogsFetches";
+import Loader from "../components/Utils/ComponentUtils/Loader";
 
 export default function BlogPage() {
   const [allBlogs, setAllBlogs] = useState([]);
@@ -8,16 +9,20 @@ export default function BlogPage() {
     _idView: null,
     content: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchBlogs = useCallback(async () => {
     try {
+      setIsLoading(true);
       const blogFetches = new BlogsFetches();
       const res = await blogFetches.GetAllBlogs({ page: 1, pageSize: 10 });
       if (res.status) {
         setAllBlogs(res.data);
+        setIsLoading(false);
       }
     } catch (error) {
       console.error("Failed to fetch blogs:", error);
+      setIsLoading(false);
     }
   }, []);
 
@@ -60,6 +65,8 @@ export default function BlogPage() {
           </button>
         </div>
       ))}
+
+      <Loader isLoading={isLoading} />
 
       {currentlyViewing.open && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
