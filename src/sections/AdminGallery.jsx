@@ -82,9 +82,22 @@ const AdminGallery = () => {
     }
   };
 
+  const PicOrVidRenderer = (media, _id) => {
+    const src = media.picture; // assuming media.picture is the URL
+    if (src.includes(".mp4")) {
+      return (
+        <video autoPlay playsInline className="h-full w-full object-fill">
+          <source src={src} type="video/mp4" />
+        </video>
+      );
+    } else {
+      return <img alt={_id} src={src} className="h-full w-full object-fill" />;
+    }
+  };
+
   return (
     <div className="p-4">
-      <h1 className="text-center text-3xl font-semibold mb-8">
+      <h1 className="text-center text-3xl font-semibold mb-8 bg-[#03045E]">
         Admin Gallery Management
       </h1>
       <Loader isLoading={isLoading} />
@@ -98,29 +111,28 @@ const AdminGallery = () => {
           </button>
           <div className="grid grid-cols-2 gap-6 relative">
             {gallery.length > 0 ? (
-              gallery.map(
-                ({ _id, picture }, index) => (
-                  <div
-                    key={_id}
-                    className="bg-white p-1 shadow-md rounded-lg flex flex-col gap-2"
-                  >
-                    <div className="flex justify-between absolute items-center">
-                      <button
-                        onClick={() => handleDeleteGallery(_id)}
-                        className="text-red-500 hover:text-red-700 transition"
-                      >
-                        <IoTrashBin size={20} />
-                      </button>
-                    </div>
-
-                    <img
-                      alt={_id}
-                      src={picture}
-                      className="h-full w-full object-fill"
-                    />
+              gallery.map(({ _id, picture }, index) => (
+                <div
+                  key={_id}
+                  className="bg-white p-1 shadow-md rounded-lg flex flex-col gap-2"
+                >
+                  <div className="flex justify-between absolute items-center">
+                    <button
+                      onClick={() => handleDeleteGallery(_id)}
+                      className="text-red-500 hover:text-red-700 transition"
+                    >
+                      <IoTrashBin size={20} />
+                    </button>
                   </div>
-                )
-              )
+
+                  {/* <img
+                    alt={_id}
+                    src={picture}
+                    className="h-full w-full object-fill"
+                  /> */}
+                  <PicOrVidRenderer picture={picture} _id={_id} />
+                </div>
+              ))
             ) : (
               <p className="text-center text-gray-500">
                 No galleries available.

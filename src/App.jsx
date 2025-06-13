@@ -26,7 +26,7 @@ const App = () => {
   const ScrollToSection = () => {
     const location = useLocation();
     useEffect(() => {
-      console.log(location);
+      // console.log(location);
       const hash = location.hash;
       if (location.pathname === "/") {
         const hash = location.hash.substring(1); // Get section ID without '#'
