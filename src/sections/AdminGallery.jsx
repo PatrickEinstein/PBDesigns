@@ -5,6 +5,7 @@ import { GalleryFetches } from "../components/Utils/HttpUtils/fetches/GalleryFet
 import Loader from "../components/Utils/ComponentUtils/Loader";
 import MultiDropZone from "../components/Utils/ComponentUtils/MultiDropZone";
 import { IoTrashBin } from "react-icons/io5";
+import PicOrVidRenderer from "../components/Utils/MediaRenderer";
 
 const AdminGallery = () => {
   const galleryService = new GalleryFetches();
@@ -82,18 +83,7 @@ const AdminGallery = () => {
     }
   };
 
-  const PicOrVidRenderer = (media, _id) => {
-    const src = media.picture; // assuming media.picture is the URL
-    if (src.includes(".mp4")) {
-      return (
-        <video autoPlay playsInline className="h-full w-full object-fill">
-          <source src={src} type="video/mp4" />
-        </video>
-      );
-    } else {
-      return <img alt={_id} src={src} className="h-full w-full object-fill" />;
-    }
-  };
+
 
   return (
     <div className="p-4">
@@ -124,12 +114,7 @@ const AdminGallery = () => {
                       <IoTrashBin size={20} />
                     </button>
                   </div>
-
-                  {/* <img
-                    alt={_id}
-                    src={picture}
-                    className="h-full w-full object-fill"
-                  /> */}
+==
                   <PicOrVidRenderer picture={picture} _id={_id} />
                 </div>
               ))

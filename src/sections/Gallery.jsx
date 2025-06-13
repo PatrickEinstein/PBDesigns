@@ -3,6 +3,7 @@ import useToast from "../components/Utils/ComponentUtils/Toast";
 import { GalleryFetches } from "../components/Utils/HttpUtils/fetches/GalleryFetches";
 import Loader from "../components/Utils/ComponentUtils/Loader";
 import { IoClose, IoArrowBack, IoArrowForward } from "react-icons/io5";
+import PicOrVidRenderer from "../components/Utils/MediaRenderer";
 
 const Gallery = () => {
   const galleryService = new GalleryFetches();
@@ -21,13 +22,13 @@ const Gallery = () => {
 
   const onHandleNext = () => {
     setPaginationParams((prev) => {
-     return prev + 1;
+      return prev + 1;
     });
   };
 
   const onHandlePrevious = () => {
     setPaginationParams((prev) => {
-     return  prev > 1 ? prev - 1 : null;
+      return prev > 1 ? prev - 1 : null;
     });
   };
   // Fetch initial gallery data
@@ -86,66 +87,77 @@ const Gallery = () => {
               className="bg-white p-1 max-h-[400px] shadow-md rounded-lg gap-2 cursor-pointer"
               onClick={() => openModal(index)}
             >
-              <img
-                alt={_id}
-                src={picture}
-                className="h-full w-full object-fill"
-              />
+              <PicOrVidRenderer picture={picture} _id={_id} />
             </div>
           ))
         ) : (
           <p className="text-center text-gray-500">Loading...</p>
         )}
       </div>
-        <div className="flex flex-row justify-between w-[90vw]">
-          <button
-            disabled={paginationParams == 1}
-            onClick={onHandlePrevious}
-            className="mt-6 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md"
-          >
-            Previous
-          </button>
-          <button
-            disabled={paginationParams == gallery.totalPages}
-            onClick={onHandleNext}
-            className="mt-6 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md"
-          >
-            More
-          </button>
-        </div>
+      <div className="flex flex-row justify-between w-[90vw]">
+        <button
+          disabled={paginationParams == 1}
+          onClick={onHandlePrevious}
+          className="mt-6 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md"
+        >
+          Previous
+        </button>
+        <button
+          disabled={paginationParams == gallery.totalPages}
+          onClick={onHandleNext}
+          className="mt-6 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md"
+        >
+          More
+        </button>
+      </div>
       {loadingMore && (
         <div className="text-center mt-4">
           <p>Loading more...</p>
         </div>
       )}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-          <div className="relative md:w-[40%] w-[90%] max-w-4xl">
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center p-4">
+          <div className="relative w-full max-w-4xl md:w-[70%] lg:w-[50%]">
+            {/* Close Button */}
             <button
-              className="absolute top-40 right-4 text-white text-2xl"
+              className="absolute top-4 right-4 z-20 text-white hover:text-red-400 transition duration-200"
               onClick={closeModal}
+              aria-label="Close"
             >
-              <IoClose className="font-extrabold text-5xl" />
+              <IoClose className="text-4xl md:text-5xl" />
             </button>
-            <img
-              src={gallery.data[currentImageIndex].picture}
-              alt="Modal Content"
-              className="min-h-[80vh] w-full object-contain"
-            />
-            <button
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl"
-              onClick={showPreviousImage}
-            >
-              <IoArrowBack className="font-extrabold text-5xl" />
-            </button>
-            <button
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl"
-              onClick={showNextImage}
-            >
-              <IoArrowForward className="font-extrabold text-5xl" />
-            </button>
+
+            {/* Media Container with relative context */}
+            <div className="relative w-full overflow-hidden rounded-xl shadow-lg">
+              {/* Pic or Video - add styling here to prevent it from taking absolute or higher z-index */}
+              <div className="w-full h-full">
+                <PicOrVidRenderer
+                  picture={gallery.data[currentImageIndex].picture}
+                  _id="any"
+                />
+              </div>
+
+              {/* Previous Button */}
+              <button
+                className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-gray-300 transition duration-200"
+                onClick={showPreviousImage}
+                aria-label="Previous"
+              >
+                <IoArrowBack className="text-4xl md:text-5xl" />
+              </button>
+
+              {/* Next Button */}
+              <button
+                className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-gray-300 transition duration-200"
+                onClick={showNextImage}
+                aria-label="Next"
+              >
+                <IoArrowForward className="text-4xl md:text-5xl" />
+              </button>
+            </div>
           </div>
         </div>
+
       )}
     </div>
   );
