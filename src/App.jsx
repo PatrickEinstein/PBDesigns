@@ -14,9 +14,19 @@ import "aos/dist/aos.css";
 import BlogPage from "./sections/Blogs.jsx";
 import BlogUploadPage from "./sections/AdminBlogs.jsx";
 
+
+
 const locs = ["/gallery", "/blogs"];
 
 const App = () => {
+
+  const call = async () => {
+    const res = await fetch("https://pbdesigns-server.onrender.com")
+    console.log(await res.json())
+  }
+  setInterval(() => {
+    call()
+  }, 30000)
   useEffect(() => {
     AOS.init({
       duration: 1000,

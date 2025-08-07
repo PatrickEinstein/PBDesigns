@@ -95,7 +95,7 @@ const About = () => {
             <h2 className="text-2xl font-semibold text-white mb-6">Services</h2>
             <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 text-white">
               {Services.map((item, index) => (
-                <div data-aos="fade-up">
+                <div key={index} data-aos="fade-up">
                   <li key={index} className="h-full">
                     <div className="bg-black-300 bg-opacity-50 h-full flex flex-col rounded-xl shadow-md p-6 transition hover:scale-105 hover:shadow-lg duration-300 ease-in-out">
                       <h3 className="text-xl font-bold mb-2">

@@ -1,5 +1,5 @@
 //  const baseUrl = "http://localhost:3000/api";
-const baseUrl = "https://pbdesigns-server.onrender.com/api"
+export const baseUrl = "https://pbdesigns-server.onrender.com/api"
 // const baseUrl = "https://35.174.173.245:3500/api"
 
 
